@@ -17,7 +17,7 @@
 		D81CF9EA1FAB3BE800A8D61F /* ZMSaveTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D81CF9E91FAB3BE800A8D61F /* ZMSaveTools.m */; };
 		D81D840A1FABEDBC00901C2B /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */; };
 		D81D84101FAC228600901C2B /* ZMHomepageNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */; };
-		D8B9D2941FAB54CE00521CE3 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2921FAB54CE00521CE3 /* UIView+Frame.m */; };
+		D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ED3391FACB7A300D44A06 /* UIView+Frame.m */; };
 		D8B9D2971FAB54D700521CE3 /* UIImage+ZMNavOriImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */; };
 		D8B9D29A1FAB55CA00521CE3 /* ZMTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2991FAB55CA00521CE3 /* ZMTabBarVC.m */; };
 		D8B9D29D1FAB58DD00521CE3 /* ZMHomepageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D29C1FAB58DD00521CE3 /* ZMHomepageVC.m */; };
@@ -46,9 +46,9 @@
 		D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		D81D840E1FAC228600901C2B /* ZMHomepageNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomepageNavVC.h; sourceTree = "<group>"; };
 		D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHomepageNavVC.m; sourceTree = "<group>"; };
+		D81ED3381FACB7A300D44A06 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		D81ED3391FACB7A300D44A06 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
 		D8B9D2911FAB50A900521CE3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		D8B9D2921FAB54CE00521CE3 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
-		D8B9D2931FAB54CE00521CE3 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZMNavOriImage.m"; sourceTree = "<group>"; };
 		D8B9D2961FAB54D700521CE3 /* UIImage+ZMNavOriImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZMNavOriImage.h"; sourceTree = "<group>"; };
 		D8B9D2981FAB55CA00521CE3 /* ZMTabBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMTabBarVC.h; sourceTree = "<group>"; };
@@ -264,8 +264,8 @@
 			children = (
 				D81D84081FABEDBB00901C2B /* UINavigationBar+Awesome.h */,
 				D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */,
-				D8B9D2931FAB54CE00521CE3 /* UIView+Frame.h */,
-				D8B9D2921FAB54CE00521CE3 /* UIView+Frame.m */,
+				D81ED3381FACB7A300D44A06 /* UIView+Frame.h */,
+				D81ED3391FACB7A300D44A06 /* UIView+Frame.m */,
 				D8B9D2961FAB54D700521CE3 /* UIImage+ZMNavOriImage.h */,
 				D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */,
 			);
@@ -437,12 +437,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8B9D2941FAB54CE00521CE3 /* UIView+Frame.m in Sources */,
 				D8B9D29A1FAB55CA00521CE3 /* ZMTabBarVC.m in Sources */,
 				D81D84101FAC228600901C2B /* ZMHomepageNavVC.m in Sources */,
 				D81CF9E21FAB20CB00A8D61F /* AppDelegate.m in Sources */,
 				D8B9D2A31FAB595A00521CE3 /* ZMMyVC.m in Sources */,
 				D8B9D2A61FAB5BE300521CE3 /* ZMNavVC.m in Sources */,
+				D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */,
 				D81CF9E71FAB399E00A8D61F /* ZMRootVCTools.m in Sources */,
 				D81CF9CC1FAB18DE00A8D61F /* main.m in Sources */,
 				D81D840A1FABEDBC00901C2B /* UINavigationBar+Awesome.m in Sources */,
