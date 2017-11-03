@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZMHomepageVC : UIViewController
+@interface ZMHomepageVC : UIViewController<UISearchBarDelegate>
 
 @end

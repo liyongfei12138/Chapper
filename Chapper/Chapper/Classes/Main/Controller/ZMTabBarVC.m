@@ -15,6 +15,7 @@
 #import "ZMClassifyVC.h"
 #import "ZMMyVC.h"
 #import "ZMNavVC.h"
+#import "ZMHomepageNavVC.h"
 
 @interface ZMTabBarVC ()
 
@@ -27,7 +28,6 @@
     
     //调用创建tabBar方法
     [self setUpTabBar];
-    
     self.tabBar.backgroundColor = [UIColor whiteColor];
 }
 //在view将要显示的时候判断是否隐藏tabbar
@@ -48,7 +48,7 @@
     //创建主页
     ZMHomepageVC *homepageVC = [[ZMHomepageVC alloc] init];
     //调用创建图片方法
-    [self childViewController:homepageVC tabBarImage:[UIImage imageWithRandAsOriImagename:@"button_shouye1"] selImage:[UIImage imageWithRandAsOriImagename:@"button_shouye2"] title:@"首页"];
+    [self childViewController:homepageVC tabBarImage:[UIImage imageWithRandAsOriImagename:@"button_shouye1"] selImage:[UIImage imageWithRandAsOriImagename:@"button_shouye2"] title:nil];
     
      //调用修改tabBar选中状态颜色方
     [self tabBarWithViewController:homepageVC tabBarText:@"首页" textColor:kSmallRed];
@@ -84,6 +84,10 @@
     ZMNavVC *nav = [[ZMNavVC alloc] initWithRootViewController: childVC];
 //    nav.tabBarItem.title =
     childVC.navigationItem.title = title;
+    
+    if ([childVC isKindOfClass:[ZMHomepageVC class]]) {
+        nav = [[ZMHomepageNavVC alloc] initWithRootViewController:childVC];
+    }
     
     [self addChildViewController:nav];
     
