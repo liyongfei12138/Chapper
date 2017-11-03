@@ -1,0 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+target ‘Chapper’ do
+pod 'MJExtension'
+pod 'PYSearch'
+pod 'SDWebImage', '~> 4.0'
+pod 'AFNetworking', '~> 3.0'
+pod ‘Masonry’
+pod 'MJRefresh'
+pod 'UMengAnalytics-NO-IDFA'
+end
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        puts target.name
+    end
+end
