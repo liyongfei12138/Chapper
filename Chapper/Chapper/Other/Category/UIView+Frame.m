@@ -63,4 +63,9 @@
 {
     return self.center.y;
 }
+
+- (void)removeAllChild
+{
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+}
 @end

@@ -18,12 +18,35 @@
 		D81D840A1FABEDBC00901C2B /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */; };
 		D81D84101FAC228600901C2B /* ZMHomepageNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */; };
 		D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ED3391FACB7A300D44A06 /* UIView+Frame.m */; };
+		D82262431FB00A4600991649 /* ZMHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82262411FB00A4600991649 /* ZMHotCollectionViewCell.m */; };
+		D82262441FB00A4600991649 /* ZMHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82262421FB00A4600991649 /* ZMHotCollectionViewCell.xib */; };
+		D85CBA011FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */; };
+		D85CBA021FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */; };
+		D85CBA051FB150C10003ACF7 /* ZMButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA041FB150C10003ACF7 /* ZMButtonItem.m */; };
+		D85CBA0E1FB156640003ACF7 /* ZMCarouselImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA0D1FB156640003ACF7 /* ZMCarouselImageItem.m */; };
+		D85CBA281FB161B10003ACF7 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */; };
+		D85CBA2B1FB161DA0003ACF7 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */; };
+		D85CBA2E1FB161F40003ACF7 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */; };
+		D85CBA311FB1620B0003ACF7 /* Base64codeFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */; };
+		D877606E1FB1898600D44E6E /* ZMLotteryVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D877606D1FB1898600D44E6E /* ZMLotteryVCViewController.m */; };
+		D87760711FB18CA300D44E6E /* ZMSortSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760701FB18CA300D44E6E /* ZMSortSegmentView.m */; };
+		D87760781FB19A1100D44E6E /* ZMMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760761FB19A1100D44E6E /* ZMMyTableViewCell.m */; };
+		D87760791FB19A1100D44E6E /* ZMMyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87760771FB19A1100D44E6E /* ZMMyTableViewCell.xib */; };
+		D877607C1FB19EDA00D44E6E /* ZMMyHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D877607B1FB19EDA00D44E6E /* ZMMyHeadView.m */; };
+		D877607F1FB1B10A00D44E6E /* ZMMyFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = D877607E1FB1B10A00D44E6E /* ZMMyFootView.m */; };
+		D87760821FB1B63C00D44E6E /* ZMMyItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760811FB1B63C00D44E6E /* ZMMyItem.m */; };
+		D87760841FB1B6EA00D44E6E /* myMenu.plist in Resources */ = {isa = PBXBuildFile; fileRef = D87760831FB1B6E900D44E6E /* myMenu.plist */; };
+		D87760871FB1BFFF00D44E6E /* ZMMyButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760861FB1BFFF00D44E6E /* ZMMyButton.m */; };
+		D877608A1FB1C75600D44E6E /* ZMFAQVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760891FB1C75600D44E6E /* ZMFAQVC.m */; };
 		D8B9D2971FAB54D700521CE3 /* UIImage+ZMNavOriImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */; };
 		D8B9D29A1FAB55CA00521CE3 /* ZMTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2991FAB55CA00521CE3 /* ZMTabBarVC.m */; };
 		D8B9D29D1FAB58DD00521CE3 /* ZMHomepageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D29C1FAB58DD00521CE3 /* ZMHomepageVC.m */; };
 		D8B9D2A01FAB58F000521CE3 /* ZMClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D29F1FAB58F000521CE3 /* ZMClassifyVC.m */; };
 		D8B9D2A31FAB595A00521CE3 /* ZMMyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */; };
 		D8B9D2A61FAB5BE300521CE3 /* ZMNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2A51FAB5BE300521CE3 /* ZMNavVC.m */; };
+		D8D5AD251FAD515400BF0622 /* ZMHotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D5AD241FAD515400BF0622 /* ZMHotVC.m */; };
+		D8D5AD2B1FAD9F9A00BF0622 /* ZMHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D5AD2A1FAD9F9A00BF0622 /* ZMHeadView.m */; };
+		D8E8C1EA1FADA6590080AE42 /* ZMHotHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8C1E91FADA6590080AE42 /* ZMHotHeadView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +71,42 @@
 		D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHomepageNavVC.m; sourceTree = "<group>"; };
 		D81ED3381FACB7A300D44A06 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		D81ED3391FACB7A300D44A06 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		D82262401FB00A4600991649 /* ZMHotCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotCollectionViewCell.h; sourceTree = "<group>"; };
+		D82262411FB00A4600991649 /* ZMHotCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotCollectionViewCell.m; sourceTree = "<group>"; };
+		D82262421FB00A4600991649 /* ZMHotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMHotCollectionViewCell.xib; sourceTree = "<group>"; };
+		D85CB9FE1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMTreatureCollectionViewCell.h; sourceTree = "<group>"; };
+		D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMTreatureCollectionViewCell.m; sourceTree = "<group>"; };
+		D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMTreatureCollectionViewCell.xib; sourceTree = "<group>"; };
+		D85CBA031FB150C10003ACF7 /* ZMButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMButtonItem.h; sourceTree = "<group>"; };
+		D85CBA041FB150C10003ACF7 /* ZMButtonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMButtonItem.m; sourceTree = "<group>"; };
+		D85CBA0C1FB156640003ACF7 /* ZMCarouselImageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMCarouselImageItem.h; sourceTree = "<group>"; };
+		D85CBA0D1FB156640003ACF7 /* ZMCarouselImageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMCarouselImageItem.m; sourceTree = "<group>"; };
+		D85CBA261FB161B10003ACF7 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
+		D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
+		D85CBA291FB161D90003ACF7 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
+		D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		D85CBA2D1FB161F40003ACF7 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		D85CBA2F1FB1620B0003ACF7 /* Base64codeFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64codeFunc.h; sourceTree = "<group>"; };
+		D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64codeFunc.m; sourceTree = "<group>"; };
+		D877606C1FB1898600D44E6E /* ZMLotteryVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLotteryVCViewController.h; sourceTree = "<group>"; };
+		D877606D1FB1898600D44E6E /* ZMLotteryVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMLotteryVCViewController.m; sourceTree = "<group>"; };
+		D877606F1FB18CA300D44E6E /* ZMSortSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSortSegmentView.h; sourceTree = "<group>"; };
+		D87760701FB18CA300D44E6E /* ZMSortSegmentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSortSegmentView.m; sourceTree = "<group>"; };
+		D87760751FB19A1100D44E6E /* ZMMyTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMyTableViewCell.h; sourceTree = "<group>"; };
+		D87760761FB19A1100D44E6E /* ZMMyTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyTableViewCell.m; sourceTree = "<group>"; };
+		D87760771FB19A1100D44E6E /* ZMMyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMMyTableViewCell.xib; sourceTree = "<group>"; };
+		D877607A1FB19EDA00D44E6E /* ZMMyHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMyHeadView.h; sourceTree = "<group>"; };
+		D877607B1FB19EDA00D44E6E /* ZMMyHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyHeadView.m; sourceTree = "<group>"; };
+		D877607D1FB1B10A00D44E6E /* ZMMyFootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMyFootView.h; sourceTree = "<group>"; };
+		D877607E1FB1B10A00D44E6E /* ZMMyFootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyFootView.m; sourceTree = "<group>"; };
+		D87760801FB1B63C00D44E6E /* ZMMyItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMyItem.h; sourceTree = "<group>"; };
+		D87760811FB1B63C00D44E6E /* ZMMyItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyItem.m; sourceTree = "<group>"; };
+		D87760831FB1B6E900D44E6E /* myMenu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = myMenu.plist; sourceTree = "<group>"; };
+		D87760851FB1BFFF00D44E6E /* ZMMyButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMMyButton.h; sourceTree = "<group>"; };
+		D87760861FB1BFFF00D44E6E /* ZMMyButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyButton.m; sourceTree = "<group>"; };
+		D87760881FB1C75600D44E6E /* ZMFAQVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMFAQVC.h; sourceTree = "<group>"; };
+		D87760891FB1C75600D44E6E /* ZMFAQVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMFAQVC.m; sourceTree = "<group>"; };
 		D8B9D2911FAB50A900521CE3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ZMNavOriImage.m"; sourceTree = "<group>"; };
 		D8B9D2961FAB54D700521CE3 /* UIImage+ZMNavOriImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ZMNavOriImage.h"; sourceTree = "<group>"; };
@@ -61,6 +120,12 @@
 		D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyVC.m; sourceTree = "<group>"; };
 		D8B9D2A41FAB5BE300521CE3 /* ZMNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMNavVC.h; sourceTree = "<group>"; };
 		D8B9D2A51FAB5BE300521CE3 /* ZMNavVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMNavVC.m; sourceTree = "<group>"; };
+		D8D5AD231FAD515400BF0622 /* ZMHotVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotVC.h; sourceTree = "<group>"; };
+		D8D5AD241FAD515400BF0622 /* ZMHotVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotVC.m; sourceTree = "<group>"; };
+		D8D5AD291FAD9F9A00BF0622 /* ZMHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHeadView.h; sourceTree = "<group>"; };
+		D8D5AD2A1FAD9F9A00BF0622 /* ZMHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHeadView.m; sourceTree = "<group>"; };
+		D8E8C1E81FADA6590080AE42 /* ZMHotHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotHeadView.h; sourceTree = "<group>"; };
+		D8E8C1E91FADA6590080AE42 /* ZMHotHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotHeadView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +184,7 @@
 				D81CF9C71FAB18DE00A8D61F /* LaunchScreen.storyboard */,
 				D81CF9DF1FAB20CB00A8D61F /* Other */,
 				D81CF9CA1FAB18DE00A8D61F /* Info.plist */,
+				D87760831FB1B6E900D44E6E /* myMenu.plist */,
 				D81CF9CB1FAB18DE00A8D61F /* main.m */,
 			);
 			path = Chapper;
@@ -151,6 +217,8 @@
 			children = (
 				D8B9D29E1FAB58F000521CE3 /* ZMClassifyVC.h */,
 				D8B9D29F1FAB58F000521CE3 /* ZMClassifyVC.m */,
+				D877606C1FB1898600D44E6E /* ZMLotteryVCViewController.h */,
+				D877606D1FB1898600D44E6E /* ZMLotteryVCViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +233,8 @@
 		D81CF9D61FAB20CB00A8D61F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D877606F1FB18CA300D44E6E /* ZMSortSegmentView.h */,
+				D87760701FB18CA300D44E6E /* ZMSortSegmentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -184,6 +254,8 @@
 			children = (
 				D8B9D29B1FAB58DD00521CE3 /* ZMHomepageVC.h */,
 				D8B9D29C1FAB58DD00521CE3 /* ZMHomepageVC.m */,
+				D8D5AD231FAD515400BF0622 /* ZMHotVC.h */,
+				D8D5AD241FAD515400BF0622 /* ZMHotVC.m */,
 				D81D840E1FAC228600901C2B /* ZMHomepageNavVC.h */,
 				D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */,
 			);
@@ -193,6 +265,10 @@
 		D81CF9D91FAB20CB00A8D61F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D85CBA031FB150C10003ACF7 /* ZMButtonItem.h */,
+				D85CBA041FB150C10003ACF7 /* ZMButtonItem.m */,
+				D85CBA0C1FB156640003ACF7 /* ZMCarouselImageItem.h */,
+				D85CBA0D1FB156640003ACF7 /* ZMCarouselImageItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +276,16 @@
 		D81CF9DA1FAB20CB00A8D61F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8D5AD291FAD9F9A00BF0622 /* ZMHeadView.h */,
+				D8D5AD2A1FAD9F9A00BF0622 /* ZMHeadView.m */,
+				D8E8C1E81FADA6590080AE42 /* ZMHotHeadView.h */,
+				D8E8C1E91FADA6590080AE42 /* ZMHotHeadView.m */,
+				D82262401FB00A4600991649 /* ZMHotCollectionViewCell.h */,
+				D82262411FB00A4600991649 /* ZMHotCollectionViewCell.m */,
+				D82262421FB00A4600991649 /* ZMHotCollectionViewCell.xib */,
+				D85CB9FE1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.h */,
+				D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */,
+				D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -219,6 +305,8 @@
 			children = (
 				D8B9D2A11FAB595A00521CE3 /* ZMMyVC.h */,
 				D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */,
+				D87760881FB1C75600D44E6E /* ZMFAQVC.h */,
+				D87760891FB1C75600D44E6E /* ZMFAQVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -226,6 +314,8 @@
 		D81CF9DD1FAB20CB00A8D61F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D87760801FB1B63C00D44E6E /* ZMMyItem.h */,
+				D87760811FB1B63C00D44E6E /* ZMMyItem.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +323,15 @@
 		D81CF9DE1FAB20CB00A8D61F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D877607A1FB19EDA00D44E6E /* ZMMyHeadView.h */,
+				D877607B1FB19EDA00D44E6E /* ZMMyHeadView.m */,
+				D877607D1FB1B10A00D44E6E /* ZMMyFootView.h */,
+				D877607E1FB1B10A00D44E6E /* ZMMyFootView.m */,
+				D87760751FB19A1100D44E6E /* ZMMyTableViewCell.h */,
+				D87760761FB19A1100D44E6E /* ZMMyTableViewCell.m */,
+				D87760771FB19A1100D44E6E /* ZMMyTableViewCell.xib */,
+				D87760851FB1BFFF00D44E6E /* ZMMyButton.h */,
+				D87760861FB1BFFF00D44E6E /* ZMMyButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,8 +365,16 @@
 				D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */,
 				D81ED3381FACB7A300D44A06 /* UIView+Frame.h */,
 				D81ED3391FACB7A300D44A06 /* UIView+Frame.m */,
+				D85CBA2D1FB161F40003ACF7 /* NSString+Extension.h */,
+				D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */,
 				D8B9D2961FAB54D700521CE3 /* UIImage+ZMNavOriImage.h */,
 				D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */,
+				D85CBA261FB161B10003ACF7 /* NSData+Encryption.h */,
+				D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */,
+				D85CBA291FB161D90003ACF7 /* NSDate+Extension.h */,
+				D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */,
+				D85CBA2F1FB1620B0003ACF7 /* Base64codeFunc.h */,
+				D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -370,7 +477,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D81CF9C91FAB18DE00A8D61F /* LaunchScreen.storyboard in Resources */,
+				D82262441FB00A4600991649 /* ZMHotCollectionViewCell.xib in Resources */,
+				D85CBA021FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib in Resources */,
+				D87760841FB1B6EA00D44E6E /* myMenu.plist in Resources */,
 				D81CF9C61FAB18DE00A8D61F /* Assets.xcassets in Resources */,
+				D87760791FB19A1100D44E6E /* ZMMyTableViewCell.xib in Resources */,
 				D81CF9C41FAB18DE00A8D61F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -438,18 +549,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8B9D29A1FAB55CA00521CE3 /* ZMTabBarVC.m in Sources */,
+				D8D5AD251FAD515400BF0622 /* ZMHotVC.m in Sources */,
+				D85CBA051FB150C10003ACF7 /* ZMButtonItem.m in Sources */,
 				D81D84101FAC228600901C2B /* ZMHomepageNavVC.m in Sources */,
+				D85CBA281FB161B10003ACF7 /* NSData+Encryption.m in Sources */,
+				D87760821FB1B63C00D44E6E /* ZMMyItem.m in Sources */,
+				D82262431FB00A4600991649 /* ZMHotCollectionViewCell.m in Sources */,
+				D85CBA2B1FB161DA0003ACF7 /* NSDate+Extension.m in Sources */,
 				D81CF9E21FAB20CB00A8D61F /* AppDelegate.m in Sources */,
 				D8B9D2A31FAB595A00521CE3 /* ZMMyVC.m in Sources */,
+				D877607F1FB1B10A00D44E6E /* ZMMyFootView.m in Sources */,
+				D87760781FB19A1100D44E6E /* ZMMyTableViewCell.m in Sources */,
 				D8B9D2A61FAB5BE300521CE3 /* ZMNavVC.m in Sources */,
+				D85CBA2E1FB161F40003ACF7 /* NSString+Extension.m in Sources */,
 				D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */,
 				D81CF9E71FAB399E00A8D61F /* ZMRootVCTools.m in Sources */,
+				D87760871FB1BFFF00D44E6E /* ZMMyButton.m in Sources */,
 				D81CF9CC1FAB18DE00A8D61F /* main.m in Sources */,
+				D8E8C1EA1FADA6590080AE42 /* ZMHotHeadView.m in Sources */,
+				D87760711FB18CA300D44E6E /* ZMSortSegmentView.m in Sources */,
 				D81D840A1FABEDBC00901C2B /* UINavigationBar+Awesome.m in Sources */,
 				D8B9D2971FAB54D700521CE3 /* UIImage+ZMNavOriImage.m in Sources */,
+				D877607C1FB19EDA00D44E6E /* ZMMyHeadView.m in Sources */,
+				D8D5AD2B1FAD9F9A00BF0622 /* ZMHeadView.m in Sources */,
 				D81CF9EA1FAB3BE800A8D61F /* ZMSaveTools.m in Sources */,
 				D8B9D2A01FAB58F000521CE3 /* ZMClassifyVC.m in Sources */,
 				D8B9D29D1FAB58DD00521CE3 /* ZMHomepageVC.m in Sources */,
+				D877606E1FB1898600D44E6E /* ZMLotteryVCViewController.m in Sources */,
+				D877608A1FB1C75600D44E6E /* ZMFAQVC.m in Sources */,
+				D85CBA011FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m in Sources */,
+				D85CBA311FB1620B0003ACF7 /* Base64codeFunc.m in Sources */,
+				D85CBA0E1FB156640003ACF7 /* ZMCarouselImageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,6 +715,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SPX825CED4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Chapper/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Chapper/Info.plist;
@@ -602,6 +733,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SPX825CED4;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Chapper/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Chapper/Info.plist;

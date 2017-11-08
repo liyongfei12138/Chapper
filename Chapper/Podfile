@@ -6,8 +6,10 @@ pod 'PYSearch'
 pod 'SDWebImage', '~> 4.0'
 pod 'AFNetworking', '~> 3.0'
 pod ‘Masonry’
+pod 'MJCSegmentInterface'
 pod 'MJRefresh'
 pod 'UMengAnalytics-NO-IDFA'
+pod 'BHInfiniteScrollView'
 end
 post_install do |installer|
     installer.pods_project.targets.each do |target|

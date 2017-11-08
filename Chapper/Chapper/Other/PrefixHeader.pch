@@ -15,6 +15,7 @@
 #import "UIView+Frame.h"
 //nav
 #import "UINavigationBar+Awesome.h"
+
 //打印
 /** 相当于log */
 #define ZMLOG(...) NSLog(__VA_ARGS__)
@@ -29,11 +30,12 @@
 
 #define NAVBAR_CHANGE_POINT 60
 
+#define collectedHeight ((float)(kDeviceWidth) * 0.4 - 0.5)/ 4.0 * 5.0
 
 // RGB颜色
 #define ZMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 // 随机色
-#define ZMRandomColor XFColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+#define ZMRandomColor ZMColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
 
 

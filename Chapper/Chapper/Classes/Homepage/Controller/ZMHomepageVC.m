@@ -9,15 +9,22 @@
 // 主页
 // **********
 #import "ZMHomepageVC.h"
+#import <MJRefresh.h>
+#import "ZMHeadView.h"
+#import <AFNetworking.h>
+#import "ZMCarouselImageItem.h"
 
-@interface ZMHomepageVC ()
-
+@interface ZMHomepageVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, strong) UITableView *tableView;
+// 数据模型
+@property (nonatomic, strong) ZMCarouselImageItem *carouselItem;
 @end
 
 @implementation ZMHomepageVC
 // **********
 // 宏
 // **********
+//#define collectedHeight ((float)(kDeviceWidth) * 0.4 - 0.5)/ 4.0 * 5.0
 //获取searchBar中field
 #define searchFieldKey @"_searchField"
 //获取placeholder中text
@@ -25,7 +32,79 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor whiteColor];
+    //设置背景颜色
+    self.view.backgroundColor = kSmallGray;
+    // 创建tableview
+    [self setUpTableView];
+
+    [self loadCarouselData];
+}
+
+// 创建tableview
+- (void)setUpTableView
+{
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - 49) style:UITableViewStylePlain];
+    
+//    [self.tableView setTableHeaderView:self.createHeartView];
+    
+    ZMHeadView *headView = [[ZMHeadView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + collectedHeight + 60)];
+    
+    [self.tableView setTableHeaderView:headView];
+    [self.tableView setRowHeight:kDeviceHeight];
+    
+    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    [self.view addSubview:self.tableView];
+//    [UIImage imageNamed:]
+    //下拉刷新
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:
+                                     ^{
+                                         //Call this Block When enter the refresh status automatically
+                                         [self.tableView.mj_footer resetNoMoreData];
+                                         
+                                     }];
+    self.tableView.mj_header = header;
+    self.tableView.mj_header.hidden = NO;
+    [header setTitle:@"正在加载哦。。。。" forState:MJRefreshStateRefreshing];
+    
+    //上拉更新
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    [footer setTitle:@"点击或者上拉刷新" forState:MJRefreshStateIdle];
+    [footer setTitle:@"加载中..." forState:MJRefreshStateRefreshing];
+    [footer setTitle:@"---没有更多数据---" forState:MJRefreshStateNoMoreData];
+    [footer setTitle:@"松开开始加载" forState:MJRefreshStatePulling];
+    self.tableView.mj_footer = footer;
+    self.tableView.mj_footer.y -= 20;
+}
+
+#pragma mark - UITableViewDataSource
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *showUserInfoCellIdentifier = @"ShowUserInfoCell";
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:showUserInfoCellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:showUserInfoCellIdentifier];
+        if (_hotViewController == nil) {
+            _hotViewController = [[ZMHotVC alloc] init];
+            [self addChildViewController:_hotViewController];
+            [cell addSubview:_hotViewController.view];
+        }
+
+    }
+    cell.backgroundColor = [UIColor redColor];
+    return cell;
 }
 
 // 在页面将要显示时创建nav
@@ -68,5 +147,42 @@
 }
 
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    
+    return 30;
+    
+}
+//今日优品头部view
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *tableSectionHeart = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 30)];
+    [tableSectionHeart setBackgroundColor:[UIColor whiteColor]];
+    
+    UIImageView* imageName = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_jinriyp"]];
+    [imageName sizeToFit];
+    imageName.x = 10;
+    imageName.centerY = tableSectionHeart.height * 0.5;
+    [tableSectionHeart addSubview:imageName];
+    return tableSectionHeart;
+}
+
+/******************
+ *** 数据解析
+ ******************/
+- (void)loadCarouselData
+{
+    // 请求地址 http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    [mgr GET:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        [responseObject writeToFile:@"/Users/liyongfei/Documents/carouse.plist" atomically:YES];
+//        NSArray *carouseDict = [responseObject[@"carousels"] lastObject];
+//        NSLog(@"%@",carouseDict);
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 @end

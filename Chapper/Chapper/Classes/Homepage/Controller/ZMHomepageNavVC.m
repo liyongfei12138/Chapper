@@ -5,9 +5,11 @@
 //  Created by liyongfei on 2017/11/3.
 //  Copyright © 2017年 liyongfei. All rights reserved.
 //
-
+// **********
+// 主页NAV 
+// **********
 #import "ZMHomepageNavVC.h"
-
+//#import <WRNavigationBar.h>
 @interface ZMHomepageNavVC ()
 
 @end
@@ -20,7 +22,7 @@
         //创建navBar
         UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[ZMHomepageNavVC class]]];
         
-        [navBar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
+//        [navBar setBackgroundImage:[UIImage imageNamed:@"UIBarMetricsDefault"] forBarMetrics:UIBarMetricsDefault];
     }
 }
 

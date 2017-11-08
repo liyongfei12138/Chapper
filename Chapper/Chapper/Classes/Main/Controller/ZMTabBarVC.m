@@ -37,11 +37,11 @@
     [super viewWillAppear:animated];
     for (UIView *view in self.tabBar.subviews) {
         if (![view isKindOfClass:[self.tabBar class]]) {
-            [view removeFromSuperview];
+//            [view removeFromSuperview];
+            self.tabBarController.tabBar.hidden = YES;
         }
     }
 }
-
 */
 //创建tabBar方法
 - (void)setUpTabBar{
@@ -87,6 +87,7 @@
     
     if ([childVC isKindOfClass:[ZMHomepageVC class]]) {
         nav = [[ZMHomepageNavVC alloc] initWithRootViewController:childVC];
+        [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
     }
     
     [self addChildViewController:nav];

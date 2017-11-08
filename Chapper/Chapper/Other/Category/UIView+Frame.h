@@ -20,7 +20,7 @@
 
 @property (nonatomic, assign) CGFloat centerY;
 
-
+- (void) removeAllChild;
 
 
 @end
