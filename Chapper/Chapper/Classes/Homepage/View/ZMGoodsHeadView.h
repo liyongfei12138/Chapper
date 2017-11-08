@@ -11,5 +11,4 @@
 @interface ZMGoodsHeadView : UIView
 
 
-
 @end
