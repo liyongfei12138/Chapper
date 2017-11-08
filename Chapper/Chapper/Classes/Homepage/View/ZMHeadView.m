@@ -11,6 +11,7 @@
 #import "ZMHeadView.h"
 #import <BHInfiniteScrollView/BHInfiniteScrollView.h>
 #import "ZMHotHeadView.h"
+#import "ZMGoodsVC.h"
 
 @interface ZMHeadView ()<BHInfiniteScrollViewDelegate>
 
@@ -85,9 +86,14 @@
     
     return infinitePageView1;
 }
-// <测试>按钮点击时间
+// <测试>按钮点击
 - (void)clickTextBtn
 {
-    NSLog(@"123");
+    ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
+    NSLog(@"<测试>按钮点击");
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
+
+    [self.owner presentViewController:nav animated:NO completion:nil];
+//    [self.owner.navigationController pushViewController:goodVC animated:NO];
 }
 @end

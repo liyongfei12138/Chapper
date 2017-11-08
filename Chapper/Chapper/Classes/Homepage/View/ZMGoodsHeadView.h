@@ -1,5 +1,5 @@
 //
-//  ZMHotVC.h
+//  ZMGoodsHeadView.h
 //  Chapper
 //
 //  Created by liyongfei on 2017/11/8.
@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#define kCICLYHEIGHT (kDeviceWidth)
+@interface ZMGoodsHeadView : UIView
 
-@interface ZMHotVC : UIViewController
+
 
 @end

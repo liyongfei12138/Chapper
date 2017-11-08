@@ -16,6 +16,7 @@
 #import "ZMMyVC.h"
 #import "ZMNavVC.h"
 #import "ZMHomepageNavVC.h"
+#import "ZMGoodsVC.h"
 
 @interface ZMTabBarVC ()
 
@@ -30,19 +31,7 @@
     [self setUpTabBar];
     self.tabBar.backgroundColor = [UIColor whiteColor];
 }
-//在view将要显示的时候判断是否隐藏tabbar
-/*
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    for (UIView *view in self.tabBar.subviews) {
-        if (![view isKindOfClass:[self.tabBar class]]) {
-//            [view removeFromSuperview];
-            self.tabBarController.tabBar.hidden = YES;
-        }
-    }
-}
-*/
+
 //创建tabBar方法
 - (void)setUpTabBar{
     //创建主页

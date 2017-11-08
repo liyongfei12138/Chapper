@@ -10,5 +10,7 @@
 
 @interface ZMHeadView : UIView
 
+@property (nonatomic,strong) UIViewController *owner;
+
 //- (UIView *)setUpScrollView;
 @end

@@ -10,4 +10,7 @@
 
 @interface ZMCarouselImageItem : NSObject
 
+@property (nonatomic, copy) NSNumber *groupI;
+
+
 @end

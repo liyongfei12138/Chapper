@@ -20,14 +20,17 @@
 		D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = D81ED3391FACB7A300D44A06 /* UIView+Frame.m */; };
 		D82262431FB00A4600991649 /* ZMHotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D82262411FB00A4600991649 /* ZMHotCollectionViewCell.m */; };
 		D82262441FB00A4600991649 /* ZMHotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D82262421FB00A4600991649 /* ZMHotCollectionViewCell.xib */; };
+		D82DFD561FB2924100BCAA4A /* ZMHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = D82DFD551FB2924100BCAA4A /* ZMHttpTool.m */; };
+		D82DFD591FB2A3CB00BCAA4A /* ZMSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D82DFD581FB2A3CB00BCAA4A /* ZMSearchVC.m */; };
+		D82DFD5C1FB2DD7C00BCAA4A /* ZMGoodsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D82DFD5B1FB2DD7C00BCAA4A /* ZMGoodsVC.m */; };
+		D82DFD621FB2F33500BCAA4A /* UIImage+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = D82DFD611FB2F33400BCAA4A /* UIImage+Image.m */; };
+		D82DFD651FB2F96000BCAA4A /* ZMHotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D82DFD641FB2F96000BCAA4A /* ZMHotVC.m */; };
+		D84055201FB30AD500FF18C0 /* ZMGoodsHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D840551F1FB30AD500FF18C0 /* ZMGoodsHeadView.m */; };
+		D84055231FB316E200FF18C0 /* ZMAboutVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D84055221FB316E200FF18C0 /* ZMAboutVC.m */; };
 		D85CBA011FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */; };
 		D85CBA021FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */; };
 		D85CBA051FB150C10003ACF7 /* ZMButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA041FB150C10003ACF7 /* ZMButtonItem.m */; };
 		D85CBA0E1FB156640003ACF7 /* ZMCarouselImageItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA0D1FB156640003ACF7 /* ZMCarouselImageItem.m */; };
-		D85CBA281FB161B10003ACF7 /* NSData+Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */; };
-		D85CBA2B1FB161DA0003ACF7 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */; };
-		D85CBA2E1FB161F40003ACF7 /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */; };
-		D85CBA311FB1620B0003ACF7 /* Base64codeFunc.m in Sources */ = {isa = PBXBuildFile; fileRef = D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */; };
 		D877606E1FB1898600D44E6E /* ZMLotteryVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D877606D1FB1898600D44E6E /* ZMLotteryVCViewController.m */; };
 		D87760711FB18CA300D44E6E /* ZMSortSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760701FB18CA300D44E6E /* ZMSortSegmentView.m */; };
 		D87760781FB19A1100D44E6E /* ZMMyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D87760761FB19A1100D44E6E /* ZMMyTableViewCell.m */; };
@@ -44,7 +47,6 @@
 		D8B9D2A01FAB58F000521CE3 /* ZMClassifyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D29F1FAB58F000521CE3 /* ZMClassifyVC.m */; };
 		D8B9D2A31FAB595A00521CE3 /* ZMMyVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */; };
 		D8B9D2A61FAB5BE300521CE3 /* ZMNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B9D2A51FAB5BE300521CE3 /* ZMNavVC.m */; };
-		D8D5AD251FAD515400BF0622 /* ZMHotVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D5AD241FAD515400BF0622 /* ZMHotVC.m */; };
 		D8D5AD2B1FAD9F9A00BF0622 /* ZMHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D5AD2A1FAD9F9A00BF0622 /* ZMHeadView.m */; };
 		D8E8C1EA1FADA6590080AE42 /* ZMHotHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E8C1E91FADA6590080AE42 /* ZMHotHeadView.m */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,20 @@
 		D82262401FB00A4600991649 /* ZMHotCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotCollectionViewCell.h; sourceTree = "<group>"; };
 		D82262411FB00A4600991649 /* ZMHotCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotCollectionViewCell.m; sourceTree = "<group>"; };
 		D82262421FB00A4600991649 /* ZMHotCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMHotCollectionViewCell.xib; sourceTree = "<group>"; };
+		D82DFD541FB2924100BCAA4A /* ZMHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMHttpTool.h; sourceTree = "<group>"; };
+		D82DFD551FB2924100BCAA4A /* ZMHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMHttpTool.m; sourceTree = "<group>"; };
+		D82DFD571FB2A3CB00BCAA4A /* ZMSearchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSearchVC.h; sourceTree = "<group>"; };
+		D82DFD581FB2A3CB00BCAA4A /* ZMSearchVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchVC.m; sourceTree = "<group>"; };
+		D82DFD5A1FB2DD7C00BCAA4A /* ZMGoodsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMGoodsVC.h; sourceTree = "<group>"; };
+		D82DFD5B1FB2DD7C00BCAA4A /* ZMGoodsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMGoodsVC.m; sourceTree = "<group>"; };
+		D82DFD601FB2F33400BCAA4A /* UIImage+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Image.h"; sourceTree = "<group>"; };
+		D82DFD611FB2F33400BCAA4A /* UIImage+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Image.m"; sourceTree = "<group>"; };
+		D82DFD631FB2F96000BCAA4A /* ZMHotVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotVC.h; sourceTree = "<group>"; };
+		D82DFD641FB2F96000BCAA4A /* ZMHotVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotVC.m; sourceTree = "<group>"; };
+		D840551E1FB30AD500FF18C0 /* ZMGoodsHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMGoodsHeadView.h; sourceTree = "<group>"; };
+		D840551F1FB30AD500FF18C0 /* ZMGoodsHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMGoodsHeadView.m; sourceTree = "<group>"; };
+		D84055211FB316E200FF18C0 /* ZMAboutVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMAboutVC.h; sourceTree = "<group>"; };
+		D84055221FB316E200FF18C0 /* ZMAboutVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMAboutVC.m; sourceTree = "<group>"; };
 		D85CB9FE1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMTreatureCollectionViewCell.h; sourceTree = "<group>"; };
 		D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMTreatureCollectionViewCell.m; sourceTree = "<group>"; };
 		D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZMTreatureCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -81,14 +97,6 @@
 		D85CBA041FB150C10003ACF7 /* ZMButtonItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMButtonItem.m; sourceTree = "<group>"; };
 		D85CBA0C1FB156640003ACF7 /* ZMCarouselImageItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMCarouselImageItem.h; sourceTree = "<group>"; };
 		D85CBA0D1FB156640003ACF7 /* ZMCarouselImageItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMCarouselImageItem.m; sourceTree = "<group>"; };
-		D85CBA261FB161B10003ACF7 /* NSData+Encryption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Encryption.h"; sourceTree = "<group>"; };
-		D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Encryption.m"; sourceTree = "<group>"; };
-		D85CBA291FB161D90003ACF7 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
-		D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
-		D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
-		D85CBA2D1FB161F40003ACF7 /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
-		D85CBA2F1FB1620B0003ACF7 /* Base64codeFunc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64codeFunc.h; sourceTree = "<group>"; };
-		D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64codeFunc.m; sourceTree = "<group>"; };
 		D877606C1FB1898600D44E6E /* ZMLotteryVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLotteryVCViewController.h; sourceTree = "<group>"; };
 		D877606D1FB1898600D44E6E /* ZMLotteryVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMLotteryVCViewController.m; sourceTree = "<group>"; };
 		D877606F1FB18CA300D44E6E /* ZMSortSegmentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSortSegmentView.h; sourceTree = "<group>"; };
@@ -120,8 +128,6 @@
 		D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMMyVC.m; sourceTree = "<group>"; };
 		D8B9D2A41FAB5BE300521CE3 /* ZMNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMNavVC.h; sourceTree = "<group>"; };
 		D8B9D2A51FAB5BE300521CE3 /* ZMNavVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMNavVC.m; sourceTree = "<group>"; };
-		D8D5AD231FAD515400BF0622 /* ZMHotVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotVC.h; sourceTree = "<group>"; };
-		D8D5AD241FAD515400BF0622 /* ZMHotVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHotVC.m; sourceTree = "<group>"; };
 		D8D5AD291FAD9F9A00BF0622 /* ZMHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHeadView.h; sourceTree = "<group>"; };
 		D8D5AD2A1FAD9F9A00BF0622 /* ZMHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHeadView.m; sourceTree = "<group>"; };
 		D8E8C1E81FADA6590080AE42 /* ZMHotHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHotHeadView.h; sourceTree = "<group>"; };
@@ -193,8 +199,8 @@
 		D81CF9D21FAB20CB00A8D61F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				D81CF9E31FAB386700A8D61F /* Tools */,
 				D81CF9EB1FAB3EB600A8D61F /* Main */,
+				D81CF9E31FAB386700A8D61F /* Tools */,
 				D81CF9D71FAB20CB00A8D61F /* Homepage */,
 				D81CF9D31FAB20CB00A8D61F /* Classify */,
 				D81CF9DB1FAB20CB00A8D61F /* Me */,
@@ -254,10 +260,14 @@
 			children = (
 				D8B9D29B1FAB58DD00521CE3 /* ZMHomepageVC.h */,
 				D8B9D29C1FAB58DD00521CE3 /* ZMHomepageVC.m */,
-				D8D5AD231FAD515400BF0622 /* ZMHotVC.h */,
-				D8D5AD241FAD515400BF0622 /* ZMHotVC.m */,
 				D81D840E1FAC228600901C2B /* ZMHomepageNavVC.h */,
 				D81D840F1FAC228600901C2B /* ZMHomepageNavVC.m */,
+				D82DFD631FB2F96000BCAA4A /* ZMHotVC.h */,
+				D82DFD641FB2F96000BCAA4A /* ZMHotVC.m */,
+				D82DFD571FB2A3CB00BCAA4A /* ZMSearchVC.h */,
+				D82DFD581FB2A3CB00BCAA4A /* ZMSearchVC.m */,
+				D82DFD5A1FB2DD7C00BCAA4A /* ZMGoodsVC.h */,
+				D82DFD5B1FB2DD7C00BCAA4A /* ZMGoodsVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +296,8 @@
 				D85CB9FE1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.h */,
 				D85CB9FF1FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m */,
 				D85CBA001FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib */,
+				D840551E1FB30AD500FF18C0 /* ZMGoodsHeadView.h */,
+				D840551F1FB30AD500FF18C0 /* ZMGoodsHeadView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,6 +319,8 @@
 				D8B9D2A21FAB595A00521CE3 /* ZMMyVC.m */,
 				D87760881FB1C75600D44E6E /* ZMFAQVC.h */,
 				D87760891FB1C75600D44E6E /* ZMFAQVC.m */,
+				D84055211FB316E200FF18C0 /* ZMAboutVC.h */,
+				D84055221FB316E200FF18C0 /* ZMAboutVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -354,6 +368,8 @@
 				D81CF9E61FAB399E00A8D61F /* ZMRootVCTools.m */,
 				D81CF9E81FAB3BE800A8D61F /* ZMSaveTools.h */,
 				D81CF9E91FAB3BE800A8D61F /* ZMSaveTools.m */,
+				D82DFD541FB2924100BCAA4A /* ZMHttpTool.h */,
+				D82DFD551FB2924100BCAA4A /* ZMHttpTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -361,20 +377,14 @@
 		D81CF9E41FAB391100A8D61F /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				D82DFD601FB2F33400BCAA4A /* UIImage+Image.h */,
+				D82DFD611FB2F33400BCAA4A /* UIImage+Image.m */,
 				D81D84081FABEDBB00901C2B /* UINavigationBar+Awesome.h */,
 				D81D84091FABEDBC00901C2B /* UINavigationBar+Awesome.m */,
 				D81ED3381FACB7A300D44A06 /* UIView+Frame.h */,
 				D81ED3391FACB7A300D44A06 /* UIView+Frame.m */,
-				D85CBA2D1FB161F40003ACF7 /* NSString+Extension.h */,
-				D85CBA2C1FB161F40003ACF7 /* NSString+Extension.m */,
 				D8B9D2961FAB54D700521CE3 /* UIImage+ZMNavOriImage.h */,
 				D8B9D2951FAB54D600521CE3 /* UIImage+ZMNavOriImage.m */,
-				D85CBA261FB161B10003ACF7 /* NSData+Encryption.h */,
-				D85CBA271FB161B10003ACF7 /* NSData+Encryption.m */,
-				D85CBA291FB161D90003ACF7 /* NSDate+Extension.h */,
-				D85CBA2A1FB161D90003ACF7 /* NSDate+Extension.m */,
-				D85CBA2F1FB1620B0003ACF7 /* Base64codeFunc.h */,
-				D85CBA301FB1620B0003ACF7 /* Base64codeFunc.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -548,37 +558,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D82DFD651FB2F96000BCAA4A /* ZMHotVC.m in Sources */,
+				D82DFD561FB2924100BCAA4A /* ZMHttpTool.m in Sources */,
 				D8B9D29A1FAB55CA00521CE3 /* ZMTabBarVC.m in Sources */,
-				D8D5AD251FAD515400BF0622 /* ZMHotVC.m in Sources */,
+				D84055231FB316E200FF18C0 /* ZMAboutVC.m in Sources */,
 				D85CBA051FB150C10003ACF7 /* ZMButtonItem.m in Sources */,
 				D81D84101FAC228600901C2B /* ZMHomepageNavVC.m in Sources */,
-				D85CBA281FB161B10003ACF7 /* NSData+Encryption.m in Sources */,
 				D87760821FB1B63C00D44E6E /* ZMMyItem.m in Sources */,
 				D82262431FB00A4600991649 /* ZMHotCollectionViewCell.m in Sources */,
-				D85CBA2B1FB161DA0003ACF7 /* NSDate+Extension.m in Sources */,
 				D81CF9E21FAB20CB00A8D61F /* AppDelegate.m in Sources */,
 				D8B9D2A31FAB595A00521CE3 /* ZMMyVC.m in Sources */,
 				D877607F1FB1B10A00D44E6E /* ZMMyFootView.m in Sources */,
 				D87760781FB19A1100D44E6E /* ZMMyTableViewCell.m in Sources */,
 				D8B9D2A61FAB5BE300521CE3 /* ZMNavVC.m in Sources */,
-				D85CBA2E1FB161F40003ACF7 /* NSString+Extension.m in Sources */,
+				D84055201FB30AD500FF18C0 /* ZMGoodsHeadView.m in Sources */,
 				D81ED33A1FACB7A300D44A06 /* UIView+Frame.m in Sources */,
 				D81CF9E71FAB399E00A8D61F /* ZMRootVCTools.m in Sources */,
+				D82DFD621FB2F33500BCAA4A /* UIImage+Image.m in Sources */,
 				D87760871FB1BFFF00D44E6E /* ZMMyButton.m in Sources */,
 				D81CF9CC1FAB18DE00A8D61F /* main.m in Sources */,
 				D8E8C1EA1FADA6590080AE42 /* ZMHotHeadView.m in Sources */,
 				D87760711FB18CA300D44E6E /* ZMSortSegmentView.m in Sources */,
 				D81D840A1FABEDBC00901C2B /* UINavigationBar+Awesome.m in Sources */,
+				D82DFD591FB2A3CB00BCAA4A /* ZMSearchVC.m in Sources */,
 				D8B9D2971FAB54D700521CE3 /* UIImage+ZMNavOriImage.m in Sources */,
 				D877607C1FB19EDA00D44E6E /* ZMMyHeadView.m in Sources */,
 				D8D5AD2B1FAD9F9A00BF0622 /* ZMHeadView.m in Sources */,
 				D81CF9EA1FAB3BE800A8D61F /* ZMSaveTools.m in Sources */,
 				D8B9D2A01FAB58F000521CE3 /* ZMClassifyVC.m in Sources */,
+				D82DFD5C1FB2DD7C00BCAA4A /* ZMGoodsVC.m in Sources */,
 				D8B9D29D1FAB58DD00521CE3 /* ZMHomepageVC.m in Sources */,
 				D877606E1FB1898600D44E6E /* ZMLotteryVCViewController.m in Sources */,
 				D877608A1FB1C75600D44E6E /* ZMFAQVC.m in Sources */,
 				D85CBA011FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.m in Sources */,
-				D85CBA311FB1620B0003ACF7 /* Base64codeFunc.m in Sources */,
 				D85CBA0E1FB156640003ACF7 /* ZMCarouselImageItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

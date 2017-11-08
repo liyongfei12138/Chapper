@@ -15,7 +15,10 @@
 #import "UIView+Frame.h"
 //nav
 #import "UINavigationBar+Awesome.h"
+//网络请求工具类
+#import "ZMHttpTool.h"
 
+#import "UIImage+Image.h"
 //打印
 /** 相当于log */
 #define ZMLOG(...) NSLog(__VA_ARGS__)

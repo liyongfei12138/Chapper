@@ -1,5 +1,5 @@
 //
-//  ZMHotVC.h
+//  ZMSearchVC.h
 //  Chapper
 //
 //  Created by liyongfei on 2017/11/8.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZMHotVC : UIViewController
+@interface ZMSearchVC : UIViewController
 
 @end

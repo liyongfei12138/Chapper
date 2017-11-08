@@ -13,11 +13,14 @@
 #import "ZMHeadView.h"
 #import <AFNetworking.h>
 #import "ZMCarouselImageItem.h"
-
+#import <PYSearch.h>
+#import <MJExtension.h>
+#import "ZMSearchVC.h"
 @interface ZMHomepageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 // 数据模型
 @property (nonatomic, strong) ZMCarouselImageItem *carouselItem;
+
 @end
 
 @implementation ZMHomepageVC
@@ -48,6 +51,8 @@
 //    [self.tableView setTableHeaderView:self.createHeartView];
     
     ZMHeadView *headView = [[ZMHeadView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + collectedHeight + 60)];
+    
+    headView.owner = self;
     
     [self.tableView setTableHeaderView:headView];
     [self.tableView setRowHeight:kDeviceHeight];
@@ -106,6 +111,7 @@
     cell.backgroundColor = [UIColor redColor];
     return cell;
 }
+
 
 // 在页面将要显示时创建nav
 - (void)viewWillAppear:(BOOL)animated
@@ -167,22 +173,40 @@
     return tableSectionHeart;
 }
 
+
+#pragma mark search
+// 使用第三方创建搜索
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    PYSearchViewController *searchVC = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"搜索好宝贝" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
+        
+        ZMSearchVC *findVC = [[ZMSearchVC alloc]init];
+//        searchViewController.cancelButton.title = @"123";
+        [searchViewController.navigationController pushViewController:findVC animated:NO];
+    }];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchVC];
+    
+    searchVC.hotSearchStyle = PYHotSearchStyleColorfulTag;
+    searchVC.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
+    searchVC.searchHistoryTitle = @"历史搜索";
+
+//    searchVC.
+    [self presentViewController:nav animated:NO completion:nil];
+}
 /******************
  *** 数据解析
  ******************/
 - (void)loadCarouselData
 {
     // 请求地址 http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    [mgr GET:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    
+    [ZMHttpTool get:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" params:nil success:^(id responseObj) {
         
-        [responseObject writeToFile:@"/Users/liyongfei/Documents/carouse.plist" atomically:YES];
-//        NSArray *carouseDict = [responseObject[@"carousels"] lastObject];
-//        NSLog(@"%@",carouseDict);
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSLog(@"%@",error);
+    } failure:^(NSError *error) {
+        NSLog(@"失败");
     }];
+    
+
 }
 
 @end
