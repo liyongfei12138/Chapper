@@ -9,6 +9,9 @@
 #import "ZMDayVC.h"
 #import "ZMTreatureCollectionViewCell.h"
 #import "ZMGoodsVC.h"
+#include <MJExtension.h>
+#import "ZMTodayItem.h"
+#import <UIImageView+WebCache.h>
 @interface ZMDayVC () <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
@@ -17,9 +20,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self initValue];
+    [self loadCarouselData];
     // Do any additional setup after loading the view.
      UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
-      UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - self.tabBarController.tabBar.bounds.size.height) collectionViewLayout:layout];
+     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - self.tabBarController.tabBar.bounds.size.height) collectionViewLayout:layout];
     layout.minimumInteritemSpacing = 0.5;
     layout.minimumLineSpacing = 0.5;
     [layout setSectionInset:UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.5)];
@@ -29,6 +34,13 @@
     [collectionView setDelegate:self];
     [collectionView setDataSource:self];
     [collectionView setScrollEnabled:false];
+    self.collectionView = collectionView;
+}
+
+// 初始化数据
+- (void)initValue
+{
+    self.todayArr = [NSMutableArray array];
 }
 
 #pragma mark -- UICollectionViewDataSource,UICollectionViewDelegate
@@ -43,7 +55,7 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.todayArr.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -55,9 +67,17 @@
     
     ZMTreatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIndentifi forIndexPath:indexPath];
     cell.backgroundColor = [UIColor whiteColor];
-    
-    //    [self setDataCell:cell indexPath:indexPath];
-    
+    if (self.todayArr.count > 0) {
+        // 获取模型数据
+        ZMTodayItem *item = self.todayArr[indexPath.row];
+        // 设置数据
+        [cell.photo sd_setImageWithURL:[NSURL URLWithString:item.itemImage] placeholderImage:nil];
+        cell.inforLabel.text = item.itemName;
+        cell.progressLabel.text = item.finalPrice;
+        cell.personLabel.text = item.sellAmount;
+    }
+  
+
     return cell;
 }
 -(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
@@ -77,5 +97,35 @@
     
     [self presentViewController:nav animated:NO completion:nil];
     //    [self.owner.navigationController pushViewController:goodVC animated:NO];
+}
+
+/******************
+ *** 数据解析
+ ******************/
+#pragma mark - 数据解析
+- (void)loadCarouselData
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:[NSNumber numberWithInt:0] forKey:@"query_type"];
+    
+    [ZMHttpTool post:ZMItemUrl params:parameters success:^(id responseObj) {
+        
+//        self.todayArr = [responseObj objectForKey:@"item"];
+          NSArray *todayArr = [ZMTodayItem mj_objectArrayWithKeyValuesArray:responseObj[@"item"]];
+        [self.todayArr addObjectsFromArray:todayArr];
+        [self.collectionView reloadData];
+
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+#pragma mark - 刷新数据
+-(void)reloadAllData
+{
+    float hight = kDeviceWidth * 0.5 * 1.2 * (_todayArr.count * 0.5) + (_todayArr.count * 0.25);
+    
+    self.collectionView.frame = CGRectMake(0, 0, kDeviceWidth, hight);
+    [self.collectionView reloadData];
 }
 @end

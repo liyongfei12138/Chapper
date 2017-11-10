@@ -9,10 +9,7 @@
 #import "ZMHotCollectionViewCell.h"
 
 @interface ZMHotCollectionViewCell ()
-@property (weak, nonatomic) IBOutlet UIImageView *photo;
-@property (weak, nonatomic) IBOutlet UILabel *inforLabel;
-@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
-@property (weak, nonatomic) IBOutlet UILabel *beforMoneyLabel;
+
 
 @end
 

@@ -18,7 +18,8 @@
 #import "ZMHotHeadView.h"
 @interface ZMHomepageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-// 数据模型
+
+@property (nonatomic,strong) NSMutableArray *todayArr;
 
 @end
 
@@ -38,7 +39,8 @@
     self.view.backgroundColor = kSmallGray;
     // 创建tableview
     [self setUpTableView];
-
+    // 请求数据
+    [self loadCarouselData];
 //    ZMHotHeadView *hotHeadView = [[ZMHotHeadView alloc] init];
 //    hotHeadView.hotOwner = self;
 }
@@ -68,13 +70,18 @@
     hotView.hotOwner = self;
     hotView.backgroundColor = [UIColor whiteColor];
     [headView addSubview:hotView];
+
+//    [headView loadCarouselData];
 //    [UIImage imageNamed:]
     //下拉刷新
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:
                                      ^{
                                          //Call this Block When enter the refresh status automatically
                                          [self.tableView.mj_footer resetNoMoreData];
-                                         
+//                                         [_todayArr removeAllObjects];
+                                         [headView loadCarouselData];
+                                         [hotView loadCarouselData];
+//                                         []
                                      }];
     self.tableView.mj_header = header;
     self.tableView.mj_header.hidden = NO;
@@ -89,6 +96,8 @@
     self.tableView.mj_footer = footer;
     self.tableView.mj_footer.y -= 20;
 }
+
+
 
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -118,6 +127,19 @@
 //    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
+// tableView点击事件
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 取消选中状态
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    float height = kDeviceWidth * 0.5 * 1.2 * ((float)_todayArr.count * 0.5) + _todayArr.count * 0.25;
+    
+    return height;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     
@@ -178,7 +200,27 @@
 }
 
 
-
+/******************
+ *** 数据解析 获取todayVC 有多少个元素
+ ******************/
+#pragma mark - 数据解析
+- (void)loadCarouselData
+{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:[NSNumber numberWithInt:0] forKey:@"query_type"];
+    
+    [ZMHttpTool post:ZMItemUrl params:parameters success:^(id responseObj) {
+        
+          self.todayArr = [responseObj objectForKey:@"item"];
+//        NSArray *todayArr = [ZMTodayItem mj_objectArrayWithKeyValuesArray:responseObj[@"item"]];
+//        [self.todayArr addObjectsFromArray:todayArr];
+        [self.tableView reloadData];
+//
+        
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
 
 #pragma mark search
 // 使用第三方创建搜索
@@ -199,6 +241,5 @@
 //    searchVC.
     [self presentViewController:nav animated:NO completion:nil];
 }
-
 
 @end

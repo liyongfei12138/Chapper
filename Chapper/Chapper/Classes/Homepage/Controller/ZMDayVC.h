@@ -10,4 +10,9 @@
 
 @interface ZMDayVC : UIViewController
 
+@property (nonatomic, strong) NSMutableArray *todayArr;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+// 刷新数据
+- (void)reloadAllData;
 @end

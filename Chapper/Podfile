@@ -11,6 +11,7 @@ pod 'MJRefresh'
 pod 'UMengAnalytics-NO-IDFA'
 pod 'BHInfiniteScrollView'
 pod 'PYSearch'
+pod 'SVProgressHUD'
 end
 post_install do |installer|
     installer.pods_project.targets.each do |target|

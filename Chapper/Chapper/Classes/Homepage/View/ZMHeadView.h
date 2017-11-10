@@ -12,8 +12,6 @@
 
 @property (nonatomic,strong) UIViewController *owner;
 
-/** 轮播图**/
-@property (nonatomic, strong)NSMutableArray *infImagArr;
-/** 活动按钮**/
-@property (nonatomic, strong) NSMutableArray *acBtnArr;
+- (void)loadCarouselData;
+
 @end

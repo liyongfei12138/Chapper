@@ -12,4 +12,5 @@
 
 @property (nonatomic,strong) UIViewController *hotOwner;
 
+- (void)loadCarouselData;
 @end

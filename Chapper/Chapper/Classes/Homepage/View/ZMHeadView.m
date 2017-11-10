@@ -14,12 +14,17 @@
 #import "ZMGoodsVC.h"
 #import <AFNetworking.h>
 #import <UIButton+WebCache.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
 @interface ZMHeadView ()<BHInfiniteScrollViewDelegate>
+/** 活动按钮数据数组**/
+@property (nonatomic, strong) NSMutableArray *acBtnDataArr;
+/** 活动按钮数组**/
+@property (nonatomic, strong) NSMutableArray *acBtnArr;
+/** 轮播图**/
+@property (nonatomic, strong) NSMutableArray *infScroImagArr;
 
-//@property (nonatomic, copy) NSMutableArray *acBtnArr;
-@property (nonatomic, strong) BHInfiniteScrollView *infinitePageView1;
-//@property (nonatomic, strong) NSMutableArray *imageAr;
-
+@property (nonatomic, strong) BHInfiniteScrollView *infinitePageView;
 @end
 @implementation ZMHeadView
 
@@ -39,8 +44,7 @@
     // 初始化数据
 //    [self initValue];
 //    self.backgroundColor = [UIColor whiteColor];
-    // 请求数据
-    [self loadCarouselData];
+   
     
     //[[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + _collectedHeight + 60)];
     self.frame = CGRectMake(0, 0, kDeviceWidth, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + collectedHeight + 60);
@@ -59,13 +63,16 @@
         btn.tag = i;
         [btn addTarget:self action:@selector(clickTestBtn) forControlEvents:UIControlEventTouchUpInside];
         btn.backgroundColor = [UIColor whiteColor];
-//        [btn setImage:[UIImage imageNamed:@"button_wd_morentx"] forState:UIControlStateNormal];
-//        [self addSubview:btn];
+//        NSLog(@"%@",_acBtnDataArr[i]);
+//        [btn sd_setBackgroundImageWithURL:_acBtnDataArr[i] forState:UIControlStateNormal];
         [btnBactView addSubview:btn];
         [_acBtnArr  addObject:btn];
+        // 请求数据
+//        [self loadCarouselData];
     }
     
-   
+    // 请求数据
+    [self loadCarouselData];
 
 }
 // 设置轮播图
@@ -76,20 +83,20 @@
     NSArray *urlsArray = [NSArray array];
     CGFloat viewHeight =  kDeviceWidth * 0.42;
     
-    BHInfiniteScrollView *infinitePageView1 = [BHInfiniteScrollView
+    BHInfiniteScrollView *infinitePageView = [BHInfiniteScrollView
                                                infiniteScrollViewWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), viewHeight) Delegate:self ImagesArray:urlsArray];
 //    infinitePageView1.titlesArray = titlesArray;
 //    infinitePageView1.pageControl.dotSize = 10;
 //    [infinitePageView1. setDotSize:10];
-    infinitePageView1.dotSpacing = 10;
-    infinitePageView1.pageControlAlignmentOffset = CGSizeMake(0,10);
-    infinitePageView1.scrollTimeInterval = 4;
-    infinitePageView1.autoScrollToNextPage = YES;
-    infinitePageView1.delegate = self;
-    [self addSubview:infinitePageView1];
-    self.infinitePageView1 = infinitePageView1;
+    infinitePageView.dotSpacing = 10;
+    infinitePageView.pageControlAlignmentOffset = CGSizeMake(0,10);
+    infinitePageView.scrollTimeInterval = 4;
+    infinitePageView.autoScrollToNextPage = YES;
+    infinitePageView.delegate = self;
+    [self addSubview:infinitePageView];
+    self.infinitePageView = infinitePageView;
     
-    return infinitePageView1;
+    return infinitePageView;
 }
 // <测试>按钮点击
 - (void)clickTestBtn
@@ -104,91 +111,51 @@
 
 - (void)initValue
 {
+    self.acBtnDataArr = [NSMutableArray array];
+    self.infScroImagArr = [NSMutableArray array];
     self.acBtnArr = [NSMutableArray array];
-    self.infImagArr = [NSMutableArray array];
 }
 /******************
  *** 数据解析
  ******************/
+#pragma mark - 数据解析
 - (void)loadCarouselData
 {
-//    [self initValue];
-    dispatch_queue_t queue = dispatch_queue_create("downImage", DISPATCH_QUEUE_SERIAL);
-    //设置按钮图片
-    dispatch_async(queue, ^{
-        [ZMHttpTool get:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" params:nil success:^(id responseObj) {
-            //         NSLog(@"%@",responseObj);
-            // 请求按钮数据
-            NSMutableArray *btnArr = [[responseObj objectAtIndex:1] objectForKey:@"carousels"];
-            
-            NSString *btnUrl;
-            NSMutableArray *btnImageArr = [NSMutableArray array];
-            for (int i = 0 ; i < btnArr.count ; i++ )
-            {
-                btnUrl = [btnArr[i] objectForKey:@"carouselImage"];
-                //            NSLog(@"%@",btnImageArr[i]);
-                NSURL *url = [NSURL URLWithString:btnUrl];
-                [btnImageArr addObject:url];
-//                NSLog(@"%@",_acBtnArr[i]);
-                //获取按钮 并设置图片
-                UIButton *acBtn = _acBtnArr[i];
-                if (acBtn.tag == i) {
-                    [acBtn sd_setBackgroundImageWithURL:btnImageArr[i] forState:UIControlStateNormal];
-                }
-            }
-        } failure:^(NSError *error) {
-            NSLog(@"失败");
-        }];
-    });
+    // 初始化数据
+//        [self initValue];
     
-    // 轮播图
-    dispatch_async(queue, ^{
-//        [af]
-        [ZMHttpTool get:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" params:nil success:^(id responseObj) {
-            NSMutableArray *imageArr = [[responseObj objectAtIndex:0] objectForKey:@"carousels"];
-            NSString *imageUrl;
-            NSMutableArray *infImageUrlArr = [NSMutableArray array];
-            for (int i = 0; i < imageArr.count; i++) {
-                imageUrl = [imageArr[i] objectForKey:@"carouselImage"];
-//                NSLog(@"%@",imageUrl);
-                [infImageUrlArr addObject:imageUrl];
-                [self.infinitePageView1 setImagesArray:infImageUrlArr];
-            }
-        } failure:^(NSError *error) {
-             NSLog(@"失败");
-        }];
-    });
-    
-}
-/*
-- (void)loadCarouselData
-{
-    self.imageAr = [NSMutableArray array];
-    // 初始化活动按钮图片
-    _acBtnArr = [NSMutableArray array];
-    // 请求地址 http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel
-    [ZMHttpTool get:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" params:nil success:^(id responseObj) {
-//         NSLog(@"%@",responseObj);
+     // 请求地址 https://taoboo.kunleen.com/coupon.webapi//api/deploy/carousel
+    [ZMHttpTool get:ZMMainUrl params:nil success:^(id responseObj) {
         // 请求按钮数据
         NSMutableArray *btnArr = [[responseObj objectAtIndex:1] objectForKey:@"carousels"];
-
-        NSString *btnUrl;
-        NSMutableArray *btnImageArr = [NSMutableArray array];
-        for (int i = 0 ; i < btnArr.count ; i++ )
-        {
-            btnUrl = [btnArr[i] objectForKey:@"carouselImage"];
-            //            NSLog(@"%@",btnImageArr[i]);
+        for (int i = 0; i < btnArr.count; i ++) {
+            NSString *btnUrl = [btnArr[i] objectForKey:@"carouselImage"];
             NSURL *url = [NSURL URLWithString:btnUrl];
-            [btnImageArr addObject:url];
-            
-            //获取按钮 并设置图片
-            UIButton *acBtn = _acBtnArr[i];
-            if (acBtn.tag == i) {
-                [acBtn sd_setBackgroundImageWithURL:btnImageArr[i] forState:UIControlStateNormal];
+            [self.acBtnDataArr addObject:url];
+//            [self.acBtnArr[i] sd_setBackgroundImageWithURL:self.acBtnDataArr[i] forState:UIControlStateNormal];
+//            NSLog(@"%@",self.acBtnDataArr[i]);
+            UIButton *btn = _acBtnArr[i];
+            if (btn.tag == i) {
+                [btn sd_setBackgroundImageWithURL:self.acBtnDataArr[i] forState:UIControlStateNormal];
+                //                }
             }
+            
         }
+        
+        // 轮播图数据
+        NSMutableArray *infinArr = [[responseObj objectAtIndex:0] objectForKey:@"carousels"];
+        //添加数组
+        for (int i = 0; i < infinArr.count; i ++) {
+            NSString *infinUrl = [infinArr[i] objectForKey:@"carouselImage"];
+//            NSURL *url = [NSURL URLWithString:infinUrl];
+            [self.infScroImagArr addObject:infinUrl];
+        }
+        
+        [self.infinitePageView setImagesArray:_infScroImagArr];
+
     } failure:^(NSError *error) {
-        NSLog(@"失败");
+        [SVProgressHUD showErrorWithStatus:@"网络繁忙"];
     }];
-}*/
+}
+
 @end

@@ -9,5 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface ZMTreatureCollectionViewCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *personLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *photo;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *inforLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *footImage;
+@property (weak, nonatomic) IBOutlet UILabel *positionLabel;
 @end

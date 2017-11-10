@@ -13,16 +13,22 @@
 #import "ZMGoodsVC.h"
 //#import "ZMHeadView.m"
 #import "ZMHomepageVC.h"
+#import <UIImageView+WebCache.h>
 @interface ZMHotHeadView() <UICollectionViewDelegate,UICollectionViewDataSource>
-//@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
+// 数据模型数组
+@property (nonatomic, strong) NSMutableArray *hotArr;
+
 @end
 @implementation ZMHotHeadView
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    [self initValue];
 //    self.backgroundColor = kSmallGray;
+    [self loadCarouselData];
     
     UICollectionViewFlowLayout *layout =[[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0.5;
@@ -39,7 +45,8 @@
     
     [self addSubview:[self setUpHeadView]];
     [self addSubview:collectionView];
-//    self.collectionView = collectionView;
+    self.collectionView = collectionView;
+//    [self.collectionView reloadData];
 }
 
 // 创建热门商品头view
@@ -68,22 +75,56 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+//    NSLog(@"*****************%zd",self.hotArr.count);
+    return self.hotArr.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *Indentifi = @"HotToosCell";
+//    [self loadCarouselData];
+    static NSString *Indentifi = @"HotCell";
     
     UINib *nib = [UINib nibWithNibName:@"ZMHotCollectionViewCell"
                                 bundle: [NSBundle mainBundle]];
     [collectionView registerNib:nib forCellWithReuseIdentifier:Indentifi];
     
     ZMHotCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:Indentifi forIndexPath:indexPath];
+    if (_hotArr.count > 0 && _hotArr[indexPath.row]) {
+        NSString *url = [self.hotArr[indexPath.row] objectForKey:@"carouselImage"];
+        [cell.photo sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
+        NSString* totleStr = [_hotArr[indexPath.row] objectForKey:@"carouselName"];
+        // 分割字符
+        NSArray *array = [totleStr componentsSeparatedByString:@",,,"];
+        // 设置内容
+        if(array.count >= 2)
+        {
+            cell.inforLabel.text = array[0];
+            cell.moneyLabel.text = array[1];
+            
+            
+            NSDictionary *attribtDic = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInteger:NSUnderlineStyleSingle]};
+            NSMutableAttributedString *attribtStr = [[NSMutableAttributedString alloc]initWithString:array[2] attributes:attribtDic];
+            cell.beforMoneyLabel.attributedText = attribtStr;
+            
+            [cell.moneyLabel sizeToFit];
+            [cell.beforMoneyLabel sizeToFit];
+            
+        }
+        
+    }
     
-    cell.backgroundColor = [UIColor greenColor];
+//    cell.backgroundColor = [UIColor greenColor];
     
     return cell;
+}
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.5;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 0.5;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -93,5 +134,23 @@
 
     [self.hotOwner presentViewController:nav animated:NO completion:nil];
 }
+#pragma mark - 初始化数组
+- (void)initValue
+{
+    self.hotArr = [NSMutableArray array];
+}
+
+#pragma mark - 数据请求
+- (void)loadCarouselData
+{
+    [ZMHttpTool post:ZMMainUrl params:nil success:^(id responseObj) {
+        self.hotArr = [[responseObj objectAtIndex:2] objectForKey:@"carousels"];
+//                NSLog(@"%@",self.hotArr);
+        [self.collectionView reloadData];
+    } failure:^(NSError *error) {
+        NSLog(@"%@",error);
+    }];
+}
+
 @end
     

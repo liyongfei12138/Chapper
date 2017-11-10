@@ -85,12 +85,12 @@
             <viewLayoutGuide key="safeArea" id="WGN-lT-shO"/>
             <size key="customSize" width="161" height="142"/>
             <connections>
-                <outlet property="footImage" destination="V4U-QR-4Rf" id="drS-xB-haS"/>
-                <outlet property="inforLabel" destination="mtX-eo-Wdi" id="rau-Q3-hlb"/>
-                <outlet property="personLabel" destination="1Py-3J-arT" id="G0v-HZ-tVr"/>
-                <outlet property="photo" destination="ekP-X0-Ey2" id="auW-K3-Vsg"/>
-                <outlet property="positionLabel" destination="13i-sj-1GE" id="4DG-eB-tcg"/>
-                <outlet property="progressLabel" destination="Y3e-LV-SJn" id="9kH-eO-b7J"/>
+                <outlet property="footImage" destination="V4U-QR-4Rf" id="fif-12-Gkp"/>
+                <outlet property="inforLabel" destination="mtX-eo-Wdi" id="I1C-MI-8fE"/>
+                <outlet property="personLabel" destination="1Py-3J-arT" id="tl9-Kq-p3N"/>
+                <outlet property="photo" destination="ekP-X0-Ey2" id="bK3-XM-3mU"/>
+                <outlet property="positionLabel" destination="13i-sj-1GE" id="NV9-UH-Dxo"/>
+                <outlet property="progressLabel" destination="Y3e-LV-SJn" id="cQV-u3-ZDH"/>
             </connections>
             <point key="canvasLocation" x="313" y="272"/>
         </collectionViewCell>
