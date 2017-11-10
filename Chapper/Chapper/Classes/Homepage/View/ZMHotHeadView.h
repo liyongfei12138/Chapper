@@ -10,4 +10,6 @@
 
 @interface ZMHotHeadView : UIView
 
+@property (nonatomic,strong) UIViewController *hotOwner;
+
 @end

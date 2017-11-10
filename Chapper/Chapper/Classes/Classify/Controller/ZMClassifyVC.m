@@ -10,7 +10,7 @@
 // **********
 
 #import "ZMClassifyVC.h"
-#import "ZMLotteryVCViewController.h"
+//#import "ZMLotteryVCViewController.h"
 #import <MJCSegmentInterface.h>
 #import "ZMSortSegmentView.h"
 @interface ZMClassifyVC ()

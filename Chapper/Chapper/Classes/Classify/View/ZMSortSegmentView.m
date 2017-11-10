@@ -47,7 +47,7 @@
         
         [vcarr addObject:lottery];
     }
-    self.frame = CGRectMake(0,64,self.jc_width, self.jc_height - 64 - 49);
+    self.frame = CGRectMake(0,64,self.jc_width, kDeviceHeight);
 //    self.isChildScollEnabled = NO;
     self.titleBarStyles = MJCTitlesScrollStyle;
     self.itemTextNormalColor = [UIColor redColor];

@@ -1,32 +1,25 @@
 //
-//  ZMLotteryVCViewController.m
+//  ZMDayVC.m
 //  Chapper
 //
-//  Created by liyongfei on 2017/11/7.
+//  Created by liyongfei on 2017/11/9.
 //  Copyright © 2017年 liyongfei. All rights reserved.
 //
 
-#import "ZMLotteryVCViewController.h"
-#import <MJRefresh.h>
+#import "ZMDayVC.h"
 #import "ZMTreatureCollectionViewCell.h"
 #import "ZMGoodsVC.h"
-@interface ZMLotteryVCViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ZMDayVC () <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @end
 
-@implementation ZMLotteryVCViewController
+@implementation ZMDayVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor yellowColor];
-//    self.view.frame = CGRectMake(0, 0, kDeviceWidth, kDeviceHeight);
-    UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
-    layout.minimumInteritemSpacing = 0.5;
-    layout.minimumLineSpacing = 0.5;
-    [layout setSectionInset:UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.5)];
-    
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - self.tabBarController.tabBar.bounds.size.height) collectionViewLayout:layout];
+     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
+      UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - self.tabBarController.tabBar.bounds.size.height) collectionViewLayout:layout];
     layout.minimumInteritemSpacing = 0.5;
     layout.minimumLineSpacing = 0.5;
     [layout setSectionInset:UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.5)];
@@ -35,28 +28,10 @@
     [self.view addSubview:collectionView];
     [collectionView setDelegate:self];
     [collectionView setDataSource:self];
-    
-    //    _dataArr = [[NSMutableArray alloc]init];
-    collectionView.height = kDeviceHeight;
-    
-    //    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
-    
-    MJRefreshAutoNormalFooter* footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(poseHttpData)];
-    
-    [footer setTitle:@"点击或者上拉刷新" forState:MJRefreshStateIdle];
-    [footer setTitle:@"加载中..." forState:MJRefreshStateRefreshing];
-    [footer setTitle:@"---没有更多数据---" forState:MJRefreshStateNoMoreData];
-    [footer setTitle:@"松开开始加载" forState:MJRefreshStatePulling];
-    collectionView.mj_footer.hidden = YES;
-    collectionView.mj_footer = footer;
+    [collectionView setScrollEnabled:false];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
+#pragma mark -- UICollectionViewDataSource,UICollectionViewDelegate
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake((float)(kDeviceWidth) * 0.5 - 1, kDeviceWidth * 0.5 * 1.2) ;
@@ -66,7 +41,6 @@
 {
     return 1;
 }
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 30;
@@ -80,7 +54,9 @@
     [collectionView registerNib:nib forCellWithReuseIdentifier:cellIndentifi];
     
     ZMTreatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIndentifi forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor grayColor];
+    cell.backgroundColor = [UIColor whiteColor];
+    
+    //    [self setDataCell:cell indexPath:indexPath];
     
     return cell;
 }
@@ -102,5 +78,4 @@
     [self presentViewController:nav animated:NO completion:nil];
     //    [self.owner.navigationController pushViewController:goodVC animated:NO];
 }
-
 @end

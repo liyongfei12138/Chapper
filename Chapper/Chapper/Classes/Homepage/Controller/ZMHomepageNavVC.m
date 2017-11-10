@@ -22,7 +22,6 @@
         //创建navBar
         UINavigationBar *navBar = [UINavigationBar appearanceWhenContainedInInstancesOfClasses:@[[ZMHomepageNavVC class]]];
         
-//        [navBar setBackgroundImage:[UIImage imageNamed:@"UIBarMetricsDefault"] forBarMetrics:UIBarMetricsDefault];
     }
 }
 

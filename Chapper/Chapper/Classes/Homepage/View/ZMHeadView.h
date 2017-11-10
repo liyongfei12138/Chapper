@@ -12,5 +12,8 @@
 
 @property (nonatomic,strong) UIViewController *owner;
 
-//- (UIView *)setUpScrollView;
+/** 轮播图**/
+@property (nonatomic, strong)NSMutableArray *infImagArr;
+/** 活动按钮**/
+@property (nonatomic, strong) NSMutableArray *acBtnArr;
 @end

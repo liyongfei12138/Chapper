@@ -10,7 +10,9 @@
 // **********
 #import "ZMHotHeadView.h"
 #import "ZMHotCollectionViewCell.h"
-
+#import "ZMGoodsVC.h"
+//#import "ZMHeadView.m"
+#import "ZMHomepageVC.h"
 @interface ZMHotHeadView() <UICollectionViewDelegate,UICollectionViewDataSource>
 //@property (nonatomic, strong) UICollectionView *collectionView;
 @end
@@ -19,6 +21,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+//    self.backgroundColor = kSmallGray;
     
     UICollectionViewFlowLayout *layout =[[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0.5;
@@ -81,5 +85,13 @@
     
     return cell;
 }
-    @end
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
+    NSLog(@"<测试>按钮点击------");
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
+
+    [self.hotOwner presentViewController:nav animated:NO completion:nil];
+}
+@end
     

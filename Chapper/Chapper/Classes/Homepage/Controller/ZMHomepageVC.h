@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ZMHotVC.h"
+#import "ZMDayVC.h"
 @interface ZMHomepageVC : UIViewController<UISearchBarDelegate>
 
 {
@@ -15,7 +15,7 @@
     float _collectedHeight;
 
 }
-@property (nonatomic,strong) ZMHotVC *hotViewController;
+@property (nonatomic,strong) ZMDayVC *hotViewController;
 @property (nonatomic,strong) UICollectionView* collectionView;
 //- (UIView *)createHeartView;
 

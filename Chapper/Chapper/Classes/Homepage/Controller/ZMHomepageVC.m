@@ -12,14 +12,13 @@
 #import <MJRefresh.h>
 #import "ZMHeadView.h"
 #import <AFNetworking.h>
-#import "ZMCarouselImageItem.h"
 #import <PYSearch.h>
 #import <MJExtension.h>
 #import "ZMSearchVC.h"
+#import "ZMHotHeadView.h"
 @interface ZMHomepageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 // 数据模型
-@property (nonatomic, strong) ZMCarouselImageItem *carouselItem;
 
 @end
 
@@ -40,20 +39,22 @@
     // 创建tableview
     [self setUpTableView];
 
-    [self loadCarouselData];
+//    ZMHotHeadView *hotHeadView = [[ZMHotHeadView alloc] init];
+//    hotHeadView.hotOwner = self;
 }
 
 // 创建tableview
 - (void)setUpTableView
 {
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - 49) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight + 49) style:UITableViewStylePlain];
     
 //    [self.tableView setTableHeaderView:self.createHeartView];
+   
     
     ZMHeadView *headView = [[ZMHeadView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + collectedHeight + 60)];
-    
+//    headView.backgroundColor = [UIColor whiteColor];
     headView.owner = self;
-    
+//    headView.twoOwner = self;
     [self.tableView setTableHeaderView:headView];
     [self.tableView setRowHeight:kDeviceHeight];
     
@@ -62,6 +63,11 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
+    //创建hot页面
+    ZMHotHeadView *hotView = [[ZMHotHeadView alloc] initWithFrame:CGRectMake(0, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + 10, kDeviceWidth, collectedHeight)];
+    hotView.hotOwner = self;
+    hotView.backgroundColor = [UIColor whiteColor];
+    [headView addSubview:hotView];
 //    [UIImage imageNamed:]
     //下拉刷新
     MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:
@@ -102,16 +108,35 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:showUserInfoCellIdentifier];
         if (_hotViewController == nil) {
-            _hotViewController = [[ZMHotVC alloc] init];
+            _hotViewController = [[ZMDayVC alloc] init];
             [self addChildViewController:_hotViewController];
-            [cell addSubview:_hotViewController.view];
+//            ZMDayVC *vc = [[ZMDayVC alloc] init]
+            [cell.contentView addSubview:_hotViewController.view];
         }
 
     }
-    cell.backgroundColor = [UIColor redColor];
+//    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    
+    return 30;
+    
+}
+//今日优品头部view
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *tableSectionHeart = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 30)];
+    [tableSectionHeart setBackgroundColor:[UIColor whiteColor]];
+    
+    UIImageView* imageName = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_jinriyp"]];
+    [imageName sizeToFit];
+    imageName.x = 10;
+    imageName.centerY = tableSectionHeart.height * 0.5;
+    [tableSectionHeart addSubview:imageName];
+    return tableSectionHeart;
+}
 
 // 在页面将要显示时创建nav
 - (void)viewWillAppear:(BOOL)animated
@@ -153,25 +178,6 @@
 }
 
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    
-    return 30;
-    
-}
-//今日优品头部view
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-{
-    UIView *tableSectionHeart = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, 30)];
-    [tableSectionHeart setBackgroundColor:[UIColor whiteColor]];
-    
-    UIImageView* imageName = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"icon_jinriyp"]];
-    [imageName sizeToFit];
-    imageName.x = 10;
-    imageName.centerY = tableSectionHeart.height * 0.5;
-    [tableSectionHeart addSubview:imageName];
-    return tableSectionHeart;
-}
 
 
 #pragma mark search
@@ -193,20 +199,6 @@
 //    searchVC.
     [self presentViewController:nav animated:NO completion:nil];
 }
-/******************
- *** 数据解析
- ******************/
-- (void)loadCarouselData
-{
-    // 请求地址 http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel
-    
-    [ZMHttpTool get:@"http://192.168.1.50:8080/coupon.webapi//api/deploy/carousel" params:nil success:^(id responseObj) {
-        
-    } failure:^(NSError *error) {
-        NSLog(@"失败");
-    }];
-    
 
-}
 
 @end
