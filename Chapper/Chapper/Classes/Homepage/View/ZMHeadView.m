@@ -16,6 +16,12 @@
 #import <UIButton+WebCache.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
+#import "ZMLotteryVCViewController.h"
+#import "ZMGoodsVC.h"
+#import "ZMFAQVC.h"
+#import "ZMClassifyVC.h"
+#import "ZMWebVC.h"
+
 @interface ZMHeadView ()<BHInfiniteScrollViewDelegate>
 /** 活动按钮数据数组**/
 @property (nonatomic, strong) NSMutableArray *acBtnDataArr;
@@ -25,6 +31,11 @@
 @property (nonatomic, strong) NSMutableArray *infScroImagArr;
 
 @property (nonatomic, strong) BHInfiniteScrollView *infinitePageView;
+@property (nonatomic, strong) ZMLotteryVCViewController *btnVC;
+
+@property (nonatomic, strong) NSMutableArray *infinArr;
+
+@property (nonatomic, strong) ZMLotteryVCViewController *imageVC;
 @end
 @implementation ZMHeadView
 
@@ -36,8 +47,6 @@
     UIView *scrollView = [self setUpScrollView];
     //    view.bounds = CGRectMake(0, 60, kDeviceWidth, 200);
     [self addSubview:scrollView];
-    
-    
     
     // 初始化数据
     [self initValue];
@@ -61,7 +70,7 @@
         btn.frame = CGRectMake(kDeviceWidth * 0.25 * i , 0, kDeviceWidth * 0.25 - 1, kDeviceWidth * 0.25 * 1.11);
 
         btn.tag = i;
-        [btn addTarget:self action:@selector(clickTestBtn) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(clickBtn:) forControlEvents:UIControlEventTouchUpInside];
         btn.backgroundColor = [UIColor whiteColor];
 //        NSLog(@"%@",_acBtnDataArr[i]);
 //        [btn sd_setBackgroundImageWithURL:_acBtnDataArr[i] forState:UIControlStateNormal];
@@ -98,23 +107,164 @@
     
     return infinitePageView;
 }
-// <测试>按钮点击
-- (void)clickTestBtn
+// 轮播图点击方法
+- (void)infiniteScrollView:(BHInfiniteScrollView *)infiniteScrollView didSelectItemAtIndex:(NSInteger)index
 {
-//    ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
-    NSLog(@"<测试>按钮点击");
-//    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
-//
-//    [self.owner presentViewController:nav animated:NO completion:nil];
-//    [self.owner.navigationController pushViewController:goodVC animated:NO];
+    int type = [[[_infinArr objectAtIndex:index] objectForKey:@"carouselType"] intValue];
+    
+    UIButton *backBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn1.frame = CGRectMake(60, 0, 40, 40);
+    [backBtn1 setImage:[UIImage imageNamed:@"icon_xq_fanhui2"] forState:UIControlStateNormal];
+    [backBtn1 addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn1 sizeToFit];
+    
+    // 类型1
+    if (type == 1) {
+        ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
+        goodVC.toolID = [[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"];
+    }
+    else if (type == 2)
+    {
+        ZMLotteryVCViewController *imageVC = [[ZMLotteryVCViewController alloc] init];
+        UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:imageVC];
+        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+//        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        [imageVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+        imageVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+
+        self.imageVC = imageVC;
+        // 添加参数
+        NSString *keyWorld = [self.infinArr[index] objectForKey:@"carouselValue"];
+        NSString *titleName = [self.infinArr[index] objectForKey:@"carouselName"];
+        self.imageVC.navigationItem.title = titleName;
+        self.imageVC.keyWorld = keyWorld;
+        self.imageVC.poseType = 5;
+        [self.owner presentViewController:navBtn animated:YES completion:nil];
+    }
+    else if (type == 3)
+    {
+        ZMLotteryVCViewController *imageVC = [[ZMLotteryVCViewController alloc] init];
+        UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:imageVC];
+        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        //        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        [imageVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+        imageVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+        
+        self.imageVC = imageVC;
+        // 添加参数
+        NSString *keyWorld = [self.infinArr[index] objectForKey:@"carouselValue"];
+        NSString *titleName = [self.infinArr[index] objectForKey:@"carouselName"];
+        self.imageVC.navigationItem.title = titleName;
+        self.imageVC.keyWorld = keyWorld;
+        self.imageVC.poseType = 6;
+        [self.owner presentViewController:navBtn animated:YES completion:nil];
+    }
+    else if (type == 4)
+    {
+        [self.owner.tabBarController setSelectedIndex:1];
+        UINavigationController *nav = self.owner.tabBarController.viewControllers[1];
+        ZMClassifyVC *sort = nav.viewControllers[0];
+        
+//        [sort selectedSortID:[[[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"] intValue]];
+    }else if (type == 5)
+    {
+        ZMWebVC *webVC = [[ZMWebVC alloc] init];
+        UINavigationController *navWeb = [[UINavigationController alloc] initWithRootViewController:webVC];
+        [webVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        //        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        [webVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+        webVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+        
+//        self.webVC = webVC;
+        // 添加参数
+        NSString *webUrl = [self.infinArr[index] objectForKey:@"carouselValue"];
+        NSString *titleName = [self.infinArr[index] objectForKey:@"carouselName"];
+        webVC.navigationItem.title = titleName;
+        webVC.webUrl = webUrl;
+//        self.webVC.poseType = 6;
+    }
 }
 
+// 按钮点击
+- (void)clickBtn:(UIButton *)button
+{
+     NSInteger index = button.tag;
+    // 改变返回按钮样式
+    UIButton *backBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    backBtn1.frame = CGRectMake(60, 0, 40, 40);
+    [backBtn1 setImage:[UIImage imageNamed:@"icon_xq_fanhui2"] forState:UIControlStateNormal];
+    [backBtn1 addTarget:self action:@selector(backBtn) forControlEvents:UIControlEventTouchUpInside];
+    [backBtn1 sizeToFit];
+   
+    if (index != 3) {
+  
+        ZMLotteryVCViewController *btnVC = [[ZMLotteryVCViewController alloc]init];
+        UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:btnVC];
+        [btnVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+        [btnVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+        btnVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+        self.btnVC = btnVC;
+        [self.owner presentViewController:navBtn animated:YES completion:nil];
+    }
+   
+    // 创建常见问题页面
+    ZMFAQVC *faqVC = [[ZMFAQVC alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:faqVC];
+  
+//    NSDictionary *dic = [self.acBtnDataArr objectAtIndex:index];
+//    int type = [[dic objectForKey:@"carouselType"] intValue];
+    
+    // 判断 但是毫无拓展性
+    switch (index) {
+        case 0:
+            self.btnVC.poseType = 5;
+            self.btnVC.keyWorld = @"10";
+            self.btnVC.navigationItem.title = @"9.9包邮";
+            break;
+        case 1:
+            self.btnVC.poseType = 5;
+            self.btnVC.keyWorld = @"20";
+            self.btnVC.navigationItem.title = @"20封顶";
+            break;
+        case 2:
+            self.btnVC.poseType = 6;
+            self.btnVC.keyWorld = @"0";
+            self.btnVC.navigationItem.title = @"畅销榜";
+            break;
+        case 3:
+            faqVC.navigationItem.title = @"常见问题";
+            [faqVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+            [faqVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+            faqVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+            [self.owner presentViewController:nav animated:YES completion:nil];
+            break;
+        case 4:
+            // 预留
+            break;
+        case 5:
+            // 预留
+            break;
+        default:
+            break;
+    }
+    
+}
+// 返回按钮
+-(void)backBtn
+{
+    //    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.owner dismissViewControllerAnimated:YES completion:nil];
+}
+// 初始化
 - (void)initValue
 {
     self.acBtnDataArr = [NSMutableArray array];
     self.infScroImagArr = [NSMutableArray array];
     self.acBtnArr = [NSMutableArray array];
+    self.infinArr = [NSMutableArray array];
+
 }
+
 /******************
  *** 数据解析
  ******************/
@@ -123,17 +273,17 @@
 {
     // 初始化数据
 //        [self initValue];
-    
+    [self.acBtnDataArr removeAllObjects];
      // 请求地址 https://taoboo.kunleen.com/coupon.webapi//api/deploy/carousel
     [ZMHttpTool get:ZMMainUrl params:nil success:^(id responseObj) {
+//        NSLog(@"%@",responseObj);
         // 请求按钮数据
         NSMutableArray *btnArr = [[responseObj objectAtIndex:1] objectForKey:@"carousels"];
         for (int i = 0; i < btnArr.count; i ++) {
             NSString *btnUrl = [btnArr[i] objectForKey:@"carouselImage"];
             NSURL *url = [NSURL URLWithString:btnUrl];
             [self.acBtnDataArr addObject:url];
-//            [self.acBtnArr[i] sd_setBackgroundImageWithURL:self.acBtnDataArr[i] forState:UIControlStateNormal];
-//            NSLog(@"%@",self.acBtnDataArr[i]);
+
             UIButton *btn = _acBtnArr[i];
             if (btn.tag == i) {
                 [btn sd_setBackgroundImageWithURL:self.acBtnDataArr[i] forState:UIControlStateNormal];
@@ -142,19 +292,24 @@
             
         }
         
+        [self.infScroImagArr removeAllObjects];
         // 轮播图数据
-        NSMutableArray *infinArr = [[responseObj objectAtIndex:0] objectForKey:@"carousels"];
+        self.infinArr = [[responseObj objectAtIndex:0] objectForKey:@"carousels"];
+        
         //添加数组
-        for (int i = 0; i < infinArr.count; i ++) {
-            NSString *infinUrl = [infinArr[i] objectForKey:@"carouselImage"];
+        for (int i = 0; i < self.infinArr.count; i ++) {
+            NSString *infinUrl = [self.infinArr[i] objectForKey:@"carouselImage"];
 //            NSURL *url = [NSURL URLWithString:infinUrl];
             [self.infScroImagArr addObject:infinUrl];
         }
         
         [self.infinitePageView setImagesArray:_infScroImagArr];
+        
+//        [header endRefreshing];
 
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"网络繁忙"];
+        [SVProgressHUD dismissWithDelay:0.5];
     }];
 }
 

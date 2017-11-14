@@ -1,14 +1,14 @@
 //
-//  ZMTodayItem.h
+//  ZMClassItem.h
 //  Chapper
 //
-//  Created by liyongfei on 2017/11/10.
+//  Created by liyongfei on 2017/11/13.
 //  Copyright © 2017年 liyongfei. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface ZMTodayItem : NSObject
+@interface ZMClassItem : NSObject
 
 /** 图片 **/
 @property (nonatomic, strong) NSString *itemImage;

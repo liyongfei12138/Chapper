@@ -10,4 +10,6 @@
 
 @interface ZMClassifyVC : UIViewController
 
+- (void) selectedSortID:(NSInteger)ID;
+
 @end

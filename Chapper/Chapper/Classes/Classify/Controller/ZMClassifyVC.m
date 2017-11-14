@@ -13,22 +13,26 @@
 //#import "ZMLotteryVCViewController.h"
 #import <MJCSegmentInterface.h>
 #import "ZMSortSegmentView.h"
+#import <AFNetworking.h>
 @interface ZMClassifyVC ()
-//@property (strong,nonatomic) MJCSegmentInterface *segement;
+@property (strong,nonatomic) ZMSortSegmentView *sortView;
 @end
 
 @implementation ZMClassifyVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    [self loadCarouselData];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-   NSArray *titlesArr = @[@"0",@"1",@"2",@"3",@"4",@"5车",@"6",@"7",@"8",@"9"];
+   NSArray *titlesArr = @[@"0",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9"];
     ZMSortSegmentView *sortView = [[ZMSortSegmentView alloc] init];
     sortView.frame = CGRectMake(0,64,self.view.jc_width, self.view.jc_height - 64 - 49);
     [self.view addSubview:sortView];
     
    [sortView intoTitlesArray:titlesArr hostController:self];
+    
+    self.sortView = sortView;
 }
 
 
@@ -64,6 +68,9 @@
     
     self.navigationController.navigationBar.topItem.titleView= topView;
 }
-
+-(void)selectedSortID:(NSInteger)ID
+{
+    [self.sortView setSelectedSegmentIndex:(ID-1)];
+}
 
 @end

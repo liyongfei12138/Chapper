@@ -10,4 +10,11 @@
 
 @interface ZMLotteryVCViewController : UIViewController
 
+@property (nonatomic,strong) NSString * keyWorld;
+@property (nonatomic,assign) NSInteger poseType;
+
+
+
+// 请求数据方法
+- (void)loadCarouselData;
 @end

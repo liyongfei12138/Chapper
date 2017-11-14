@@ -13,7 +13,7 @@
 #import "ZMGoodsVC.h"
 //#import "ZMHeadView.m"
 #import "ZMHomepageVC.h"
-#import <UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 @interface ZMHotHeadView() <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 
@@ -92,7 +92,7 @@
     if (_hotArr.count > 0 && _hotArr[indexPath.row]) {
         NSString *url = [self.hotArr[indexPath.row] objectForKey:@"carouselImage"];
         [cell.photo sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:nil];
-        NSString* totleStr = [_hotArr[indexPath.row] objectForKey:@"carouselName"];
+        NSString *totleStr = [_hotArr[indexPath.row] objectForKey:@"carouselName"];
         // 分割字符
         NSArray *array = [totleStr componentsSeparatedByString:@",,,"];
         // 设置内容
@@ -130,6 +130,9 @@
 {
     ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
     NSLog(@"<测试>按钮点击------");
+    goodVC.toolID = [[_hotArr objectAtIndex:indexPath.row] objectForKey:@"carouselValue"];
+//    NSLog(@"%@",goodVC.toolID);
+    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
 
     [self.hotOwner presentViewController:nav animated:NO completion:nil];

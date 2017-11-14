@@ -10,4 +10,12 @@
 #define kCICLYHEIGHT (kDeviceWidth)
 @interface ZMGoodsVC : UIViewController
 
+// 主页商品ID
+@property (nonatomic, strong) NSString *toolID;
+
+// 分类商品数组
+@property (nonatomic,strong) NSMutableArray *lotterArr;
+
+// 今日商品数组
+@property (nonatomic,strong) NSMutableArray *todayArr;
 @end

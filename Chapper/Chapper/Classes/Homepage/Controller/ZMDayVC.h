@@ -13,6 +13,10 @@
 @property (nonatomic, strong) NSMutableArray *todayArr;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+- (void)loadCarouselData;
 // 刷新数据
 - (void)reloadAllData;
+//默认页数
+@property (nonatomic, assign) int index;
+
 @end

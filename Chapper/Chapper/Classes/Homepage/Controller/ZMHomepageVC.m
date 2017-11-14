@@ -9,17 +9,22 @@
 // 主页
 // **********
 #import "ZMHomepageVC.h"
-#import <MJRefresh.h>
 #import "ZMHeadView.h"
 #import <AFNetworking.h>
 #import <PYSearch.h>
 #import <MJExtension.h>
 #import "ZMSearchVC.h"
 #import "ZMHotHeadView.h"
+#import "MJRefresh.h"
+
 @interface ZMHomepageVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic,strong) NSMutableArray *todayArr;
+//@property (nonatomic,strong) NSMutableArray *todayArr;
+
+@property (nonatomic, strong) NSMutableArray *todayH;
+
+@property (nonatomic, strong) ZMDayVC *dayVC;
 
 @end
 
@@ -32,17 +37,30 @@
 #define searchFieldKey @"_searchField"
 //获取placeholder中text
 #define placeholderKey @"_placeholderLabel.font"
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+//    self.todayArr = [NSMutableArray array];
     //设置背景颜色
     self.view.backgroundColor = kSmallGray;
     // 创建tableview
     [self setUpTableView];
-    // 请求数据
-    [self loadCarouselData];
-//    ZMHotHeadView *hotHeadView = [[ZMHotHeadView alloc] init];
-//    hotHeadView.hotOwner = self;
+
+    self.todayH = [NSMutableArray array];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notification:) name:@"dayH" object:nil];
+    
+}
+
+
+
+- (void)notification:(NSNotification *)text{
+    self.todayH = text.userInfo[@"dayArray"];
+    
+    [self.tableView reloadData];
+    NSLog(@"%zd",self.todayH.count);
+    
 }
 
 // 创建tableview
@@ -65,6 +83,14 @@
     self.tableView.dataSource = self;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
+    
+    if (@available(iOS 11.0, *)) {
+        self.tableView.estimatedRowHeight = 0;
+        self.tableView.estimatedSectionFooterHeight = 0;
+        self.tableView.estimatedSectionHeaderHeight = 0;
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
     //创建hot页面
     ZMHotHeadView *hotView = [[ZMHotHeadView alloc] initWithFrame:CGRectMake(0, kDeviceWidth * 0.42 + kDeviceWidth * 0.25 * 1.11 + 10, kDeviceWidth, collectedHeight)];
     hotView.hotOwner = self;
@@ -81,13 +107,19 @@
 //                                         [_todayArr removeAllObjects];
                                          [headView loadCarouselData];
                                          [hotView loadCarouselData];
-//                                         []
+//                                         [self loadCarouselData];
+                                         
+//                                         [self.dayVC loadCarouselData];
+                                         [self reloadTypeView];
                                      }];
+//    [header beginRefreshing];
+    
     self.tableView.mj_header = header;
     self.tableView.mj_header.hidden = NO;
-    [header setTitle:@"正在加载哦。。。。" forState:MJRefreshStateRefreshing];
+    [header setTitle:@"正在加载呦..." forState:MJRefreshStateRefreshing];
     
     //上拉更新
+//    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
     [footer setTitle:@"点击或者上拉刷新" forState:MJRefreshStateIdle];
     [footer setTitle:@"加载中..." forState:MJRefreshStateRefreshing];
@@ -95,9 +127,29 @@
     [footer setTitle:@"松开开始加载" forState:MJRefreshStatePulling];
     self.tableView.mj_footer = footer;
     self.tableView.mj_footer.y -= 20;
+    
+//    [header endRefreshing];
 }
+// 上拉刷新
+- (void)reloadTypeView
+{
+//    [self.tableView.mj_footer endRefreshing];
+    [self.tableView.mj_header endRefreshing];
+    
+//    _hotViewController.dataArr = _toolInforArr;
+    [self.tableView reloadData];
+    [_hotViewController reloadAllData];
+    
+}
+// 下拉刷新
+- (void)loadMoreData
+{
+//    self.dayVC.index += 1;
+     [self.dayVC loadCarouselData];
 
-
+     [self.tableView.mj_footer endRefreshing];
+    
+}
 
 #pragma mark - UITableViewDataSource
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -117,14 +169,19 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:showUserInfoCellIdentifier];
         if (_hotViewController == nil) {
-            _hotViewController = [[ZMDayVC alloc] init];
+            
+            self.dayVC = [[ZMDayVC alloc] init];
+            
+//            [self.dayVC reloadAllData];
+            _hotViewController = self.dayVC;
             [self addChildViewController:_hotViewController];
 //            ZMDayVC *vc = [[ZMDayVC alloc] init]
-            [cell.contentView addSubview:_hotViewController.view];
+            [cell addSubview:_hotViewController.view];
         }
+        
 
     }
-//    cell.backgroundColor = [UIColor redColor];
+    cell.backgroundColor = [UIColor redColor];
     return cell;
 }
 // tableView点击事件
@@ -135,7 +192,8 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    float height = kDeviceWidth * 0.5 * 1.2 * ((float)_todayArr.count * 0.5) + _todayArr.count * 0.25;
+//    NSLog(@"-------->%zd",self.todayArr.count);
+    float height = kDeviceWidth * 0.5 * 1.2 * ((float)_todayH.count * 0.5) + _todayH.count * 0.25;
     
     return height;
 }
@@ -200,27 +258,7 @@
 }
 
 
-/******************
- *** 数据解析 获取todayVC 有多少个元素
- ******************/
-#pragma mark - 数据解析
-- (void)loadCarouselData
-{
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:[NSNumber numberWithInt:0] forKey:@"query_type"];
-    
-    [ZMHttpTool post:ZMItemUrl params:parameters success:^(id responseObj) {
-        
-          self.todayArr = [responseObj objectForKey:@"item"];
-//        NSArray *todayArr = [ZMTodayItem mj_objectArrayWithKeyValuesArray:responseObj[@"item"]];
-//        [self.todayArr addObjectsFromArray:todayArr];
-        [self.tableView reloadData];
-//
-        
-    } failure:^(NSError *error) {
-        NSLog(@"%@",error);
-    }];
-}
+
 
 #pragma mark search
 // 使用第三方创建搜索
@@ -229,10 +267,15 @@
     PYSearchViewController *searchVC = [PYSearchViewController searchViewControllerWithHotSearches:nil searchBarPlaceholder:@"搜索好宝贝" didSearchBlock:^(PYSearchViewController *searchViewController, UISearchBar *searchBar, NSString *searchText) {
         
         ZMSearchVC *findVC = [[ZMSearchVC alloc]init];
+        findVC.keyWorld = searchText;
+        findVC.poseType = 2;
+        
 //        searchViewController.cancelButton.title = @"123";
         [searchViewController.navigationController pushViewController:findVC animated:NO];
     }];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:searchVC];
+    
+
     
     searchVC.hotSearchStyle = PYHotSearchStyleColorfulTag;
     searchVC.searchHistoryStyle = PYSearchHistoryStyleBorderTag;
@@ -241,5 +284,18 @@
 //    searchVC.
     [self presentViewController:nav animated:NO completion:nil];
 }
+
+
+
+//#pragma mark - 数据请求
+//- (void)loadCarouselData
+//{
+//    [ZMHttpTool post:ZMMainUrl params:nil success:^(id responseObj) {
+//        
+//        
+//    } failure:^(NSError *error) {
+//        NSLog(@"%@",error);
+//    }];
+//}
 
 @end

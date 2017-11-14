@@ -7,18 +7,40 @@
 //
 
 #import "ZMLotteryVCViewController.h"
-#import <MJRefresh.h>
+#import "MJRefresh.h"
 #import "ZMTreatureCollectionViewCell.h"
 #import "ZMGoodsVC.h"
-@interface ZMLotteryVCViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+#import <SVProgressHUD.h>
+#import <UIImageView+WebCache.h>
+#import <MJExtension.h>
+#import "ZMClassItem.h"
+#import "ZMGoodsHeadView.h"
 
+@interface ZMLotteryVCViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
+@property (nonatomic,strong) NSDictionary *goodDict;
+@property (nonatomic,strong) NSMutableArray *dataArr;
+@property (nonatomic,strong) UICollectionView *collectionView;
+
+@property (nonatomic, assign) NSInteger index;
 @end
 
 @implementation ZMLotteryVCViewController
 
+- (NSMutableArray *)dataArr
+{
+    if (_dataArr == nil) {
+        _dataArr = [NSMutableArray array];
+    }
+    return _dataArr;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initValue];
+    // 解析数据
+    [self loadCarouselData];
+    
     self.view.backgroundColor = [UIColor yellowColor];
 //    self.view.frame = CGRectMake(0, 0, kDeviceWidth, kDeviceHeight);
     UICollectionViewFlowLayout* layout = [[UICollectionViewFlowLayout alloc]init];
@@ -26,12 +48,12 @@
     layout.minimumLineSpacing = 0.5;
     [layout setSectionInset:UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.5)];
     
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight - self.tabBarController.tabBar.bounds.size.height) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight) collectionViewLayout:layout];
     layout.minimumInteritemSpacing = 0.5;
     layout.minimumLineSpacing = 0.5;
     [layout setSectionInset:UIEdgeInsetsMake(0.5, 0.5, 0.5, 0.5)];
     
-    [collectionView setBackgroundColor:kSmallGray];
+    [collectionView setBackgroundColor:[UIColor whiteColor]];
     [self.view addSubview:collectionView];
     [collectionView setDelegate:self];
     [collectionView setDataSource:self];
@@ -41,7 +63,7 @@
     
     //    [self.navigationController.navigationBar setBarTintColor:[UIColor whiteColor]];
     
-    MJRefreshAutoNormalFooter* footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(poseHttpData)];
+    MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadCarouselData)];
     
     [footer setTitle:@"点击或者上拉刷新" forState:MJRefreshStateIdle];
     [footer setTitle:@"加载中..." forState:MJRefreshStateRefreshing];
@@ -49,11 +71,15 @@
     [footer setTitle:@"松开开始加载" forState:MJRefreshStatePulling];
     collectionView.mj_footer.hidden = YES;
     collectionView.mj_footer = footer;
+    
+    self.collectionView = collectionView;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)initValue
+{
+    self.goodDict = [NSDictionary dictionary];
+//    self.dataArr = [NSMutableArray array];
+    self.index = 1;
 }
 
 #pragma mark - UICollectionViewDelegate,UICollectionViewDataSource
@@ -69,7 +95,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return self.dataArr.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -80,7 +106,15 @@
     [collectionView registerNib:nib forCellWithReuseIdentifier:cellIndentifi];
     
     ZMTreatureCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIndentifi forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor grayColor];
+//    cell.backgroundColor = [UIColor grayColor];
+    if (self.dataArr.count > 0) {
+        ZMClassItem *item = self.dataArr[indexPath.row];
+        [cell.photo sd_setImageWithURL:[NSURL URLWithString:item.itemImage]];
+        cell.inforLabel.text = item.itemName;
+        cell.progressLabel.text = [NSString stringWithFormat:@"¥%@",item.finalPrice];
+        cell.personLabel.text = item.sellAmount;
+    }
+
     
     return cell;
 }
@@ -96,11 +130,44 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
+    goodVC.lotterArr = _dataArr[indexPath.row];
     NSLog(@"<测试>按钮点击");
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
     
     [self presentViewController:nav animated:NO completion:nil];
     //    [self.owner.navigationController pushViewController:goodVC animated:NO];
 }
+
+/******************
+ *** 数据解析
+ ******************/
+#pragma mark - 数据解析
+- (void)loadCarouselData
+{
+    
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:_keyWorld forKey:@"query_data"];
+    [parameters setObject:[NSNumber numberWithInt:_poseType] forKey:@"query_type"];
+    [parameters setObject:[NSNumber numberWithInt:_index] forKey:@"page_index"];
+    [ZMHttpTool post:ZMItemUrl params:parameters success:^(id responseObj) {
+        
+        self.goodDict = [responseObj valueForKey:@"item"];
+        
+//      [ZMClassItem mj_objectWithKeyValues:self.goodDict];
+        NSArray *arr = [ZMClassItem mj_objectArrayWithKeyValuesArray:self.goodDict];
+        [self.dataArr addObjectsFromArray:arr];
+        
+//        [self.dataArr removeAllObjects];
+        [self.collectionView reloadData];
+        [self.collectionView.mj_footer endRefreshing];
+        _index ++;
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"请检查网络"];
+        [SVProgressHUD dismissWithDelay:0.5];
+    }];
+}
+
+
 
 @end
