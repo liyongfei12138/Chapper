@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C4EFE749E02CFF4D1A73F207 /* libPods-Chapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 353832676C7A43961EDE2BA3 /* libPods-Chapper.a */; };
-		D818995E1FBBE62500F1B6CD /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D818995D1FBBE62400F1B6CD /* yw_1222.jpg */; };
+		D80360921FBC331300B69F7B /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D80360911FBC331300B69F7B /* yw_1222.jpg */; };
 		D81899611FBC11F300F1B6CD /* ZMLoginWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81899601FBC11F300F1B6CD /* ZMLoginWebVC.m */; };
 		D81899641FBC146400F1B6CD /* ZMLoginNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81899631FBC146400F1B6CD /* ZMLoginNavVC.m */; };
 		D81CF9C41FAB18DE00A8D61F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81CF9C21FAB18DE00A8D61F /* Main.storyboard */; };
@@ -79,7 +79,7 @@
 		1BAFB4948DA20EB01FD3F47A /* Pods-Chapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chapper/Pods-Chapper.debug.xcconfig"; sourceTree = "<group>"; };
 		1E6A03668A6E6A32D236195A /* Pods-Chapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chapper/Pods-Chapper.release.xcconfig"; sourceTree = "<group>"; };
 		353832676C7A43961EDE2BA3 /* libPods-Chapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chapper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D818995D1FBBE62400F1B6CD /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
+		D80360911FBC331300B69F7B /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
 		D818995F1FBC11F300F1B6CD /* ZMLoginWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLoginWebVC.h; sourceTree = "<group>"; };
 		D81899601FBC11F300F1B6CD /* ZMLoginWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMLoginWebVC.m; sourceTree = "<group>"; };
 		D81899621FBC146400F1B6CD /* ZMLoginNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLoginNavVC.h; sourceTree = "<group>"; };
@@ -237,7 +237,6 @@
 		D81CF9B01FAB18DE00A8D61F = {
 			isa = PBXGroup;
 			children = (
-				D818995D1FBBE62400F1B6CD /* yw_1222.jpg */,
 				D81CF9BB1FAB18DE00A8D61F /* Chapper */,
 				D81CF9BA1FAB18DE00A8D61F /* Products */,
 				9246F1DA276728C9490804E9 /* Pods */,
@@ -256,6 +255,7 @@
 		D81CF9BB1FAB18DE00A8D61F /* Chapper */ = {
 			isa = PBXGroup;
 			children = (
+				D80360911FBC331300B69F7B /* yw_1222.jpg */,
 				D81CF9D21FAB20CB00A8D61F /* Classes */,
 				D81CF9C21FAB18DE00A8D61F /* Main.storyboard */,
 				D81CF9C51FAB18DE00A8D61F /* Assets.xcassets */,
@@ -664,7 +664,7 @@
 				D82262441FB00A4600991649 /* ZMHotCollectionViewCell.xib in Resources */,
 				D85CBA021FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib in Resources */,
 				D87760841FB1B6EA00D44E6E /* myMenu.plist in Resources */,
-				D818995E1FBBE62500F1B6CD /* yw_1222.jpg in Resources */,
+				D80360921FBC331300B69F7B /* yw_1222.jpg in Resources */,
 				D81CF9C61FAB18DE00A8D61F /* Assets.xcassets in Resources */,
 				D87760791FB19A1100D44E6E /* ZMMyTableViewCell.xib in Resources */,
 				D84960591FB9B22B00C5C4DB /* MJRefresh.bundle in Resources */,
