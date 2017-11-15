@@ -25,4 +25,7 @@
 /** 人数 **/
 @property (nonatomic, strong) NSString *sellAmount;
 
+/** 领卷中心 **/
+@property (nonatomic, strong) NSString *promotionURL;
+
 @end

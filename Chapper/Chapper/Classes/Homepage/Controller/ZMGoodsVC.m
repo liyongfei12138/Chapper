@@ -11,9 +11,14 @@
 #import "ZMGoodsHeadView.h"
 
 #import <SVProgressHUD.h>
+#import "ZMLoginNavVC.h"
+#import "ZMLoginWebVC.h"
+
 @interface ZMGoodsVC () <UITableViewDelegate, UITableViewDataSource >
 // 商品字典
 @property (nonatomic, strong) NSDictionary *goodDict;
+
+@property (nonatomic, strong) NSString *url;
 @end
 
 @implementation ZMGoodsVC
@@ -21,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     // 初始化
     [self initValue];
     // 解析数据
@@ -33,9 +38,15 @@
     
     [self setBuyButton];
 //    [self createTableHeaderView];
-    
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotification:) name:@"getUrl" object:nil];
 }
+- (void)getNotification:(NSNotification *)text
+{
+    self.url = text.userInfo[@"urlDict"];
+//    self.url = [[dict valueForKey:@"urlDict"] objectAtIndex:0];
+}
+
 // 隐藏nav 以及设置返回按钮
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -73,9 +84,19 @@
     [buyBtn addTarget:self action:@selector(didClickBuyBtn) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:buyBtn];
 }
+// 购买按钮
 - (void)didClickBuyBtn
 {
-    NSLog(@"你点击了购买按钮");
+//    NSLog(@"%@",self.webUrl);
+//    self.url = _webUrl;
+    
+    ZMLoginWebVC *getVC = [[ZMLoginWebVC alloc] initWithWebView];
+    getVC.title = @"领卷中心";
+    getVC.webUrl = self.url;
+    ZMLoginNavVC *getNav = [[ZMLoginNavVC alloc] initWithRootViewController:getVC];
+    
+    [self presentViewController:getNav animated:YES completion:nil];
+//    NSLog(@"你点击了购买按钮");
 }
 
 // 创建tableview
@@ -97,6 +118,9 @@
     [self.view addSubview:tableV];
     [tableV setDelegate:self];
     [tableV setDataSource:self];
+    
+    
+
 }
 #pragma mark - <UITableViewDelegate, UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

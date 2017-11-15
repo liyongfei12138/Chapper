@@ -8,7 +8,8 @@
 
 #import "ZMMyHeadView.h"
 #import "ZMMyButton.h"
-
+#import "ZMLoginWebVC.h"
+#import "ZMLoginNavVC.h"
 @implementation ZMMyHeadView
 
  - (void)layoutSubviews
@@ -27,6 +28,11 @@
 //点击登入按钮
 - (void)clickLoginBtn
 {
+    ZMLoginWebVC *vc = [[ZMLoginWebVC alloc] initWithWebView];;
+    ZMLoginNavVC *navVC = [[ZMLoginNavVC alloc] initWithRootViewController:vc];
+    
+    [self.own presentViewController:navVC animated:YES completion:nil];
+    
     ZMLOG(@"你点击了login按钮");
 }
 

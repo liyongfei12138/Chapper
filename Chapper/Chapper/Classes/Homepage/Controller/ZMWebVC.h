@@ -11,6 +11,6 @@
 @interface ZMWebVC : UIViewController
 
 @property (nonatomic,strong) NSString* webUrl;
-@property (nonatomic,strong) NSString* title;
-
+//@property (nonatomic,strong) NSString* title;
+//- (instancetype)initWithWebView;
 @end

@@ -84,10 +84,16 @@ EOM
   esac
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "${PODS_ROOT}/AlibcLinkPartnerSDK/AlibcLinkPartnerSDK.framework/ALPLinkPartnerSDK.bundle"
+  install_resource "${PODS_ROOT}/AlibcTradeSDK/AlibcTradeBiz.framework/NBResource.bundle"
+  install_resource "${PODS_ROOT}/AlipaySDK/alipay/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "${PODS_ROOT}/AlibcLinkPartnerSDK/AlibcLinkPartnerSDK.framework/ALPLinkPartnerSDK.bundle"
+  install_resource "${PODS_ROOT}/AlibcTradeSDK/AlibcTradeBiz.framework/NBResource.bundle"
+  install_resource "${PODS_ROOT}/AlipaySDK/alipay/AlipaySDK.bundle"
   install_resource "${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi

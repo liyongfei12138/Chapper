@@ -11,10 +11,12 @@
 #import <UIImageView+WebCache.h>
 #import "ZMClassItem.h"
 #import "ZMTodayItem.h"
+#import "ZMGoodsVC.h"
 @interface ZMGoodsHeadView() <BHInfiniteScrollViewDelegate>
 
+// 获取领卷中心URL
+@property (nonatomic, strong) NSString *getUrl;
 
-//@property (nonatomic, strong) UIImageView *image;
 @end
 @implementation ZMGoodsHeadView
 
@@ -23,6 +25,10 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+//    self.goodVC = [[ZMGoodsVC alloc]init];
+    
+  
+    
     
     // 接受通知
     self.goods = [NSDictionary dictionary];
@@ -117,9 +123,19 @@
         self.beforLabel.text = [NSString stringWithFormat:@"¥%@", item.price];
         self.personLabel.text = [NSString stringWithFormat:@"月销%@件",item.sellAmount];
         NSMutableArray *imageArr = [NSMutableArray arrayWithObject:item.itemImage];
+        
+//        self.goodVC.webUrl
         [_infinitePageView setImagesArray:imageArr];
         // 移除元素
 //        [self.lotterArr removeAllObjects];
+        
+        // 获取领卷中心URL
+        self.getUrl = item.promotionURL;
+        NSDictionary *dictGet =[[NSDictionary alloc] initWithObjectsAndKeys:self.getUrl,@"urlDict",nil];
+        //创建通知
+        NSNotification *Getnotification =[NSNotification notificationWithName:@"getUrl" object:nil userInfo:dictGet];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:Getnotification];
     }
     // 设置今日商品页面
     ZMTodayItem *todayItem = (ZMTodayItem *)self.todayArr;
@@ -132,6 +148,13 @@
         [_infinitePageView setImagesArray:imageArr];
         // 移除元素
         //        [self.lotterArr removeAllObjects];
+        // 获取领卷中心URL
+        self.getUrl = todayItem.promotionURL;
+        NSDictionary *dictGet =[[NSDictionary alloc] initWithObjectsAndKeys:self.getUrl,@"urlDict",nil];
+        //创建通知
+        NSNotification *Getnotification =[NSNotification notificationWithName:@"getUrl" object:nil userInfo:dictGet];
+        //通过通知中心发送通知
+        [[NSNotificationCenter defaultCenter] postNotification:Getnotification];
     }
 }
 
@@ -146,8 +169,16 @@
     self.personLabel.text = [NSString stringWithFormat:@"月销%@件",[[self.goods valueForKey:@"sellAmount"] objectAtIndex:0]];
      NSArray *imArr = [self.goods valueForKey:@"itemImage"];
     [_infinitePageView setImagesArray:imArr];
+    
+    // 获取领卷中心URL
+   self.getUrl = [[self.goods valueForKey:@"promotionURL"] objectAtIndex:0];
 //    NSMutableArray *array = [NSMutableArray arrayWithObject:imArr];
 //    [self.infinitePageView setImagesArray:array];
+    NSDictionary *dictGet =[[NSDictionary alloc] initWithObjectsAndKeys:self.getUrl,@"urlDict",nil];
+    //创建通知
+    NSNotification *Getnotification =[NSNotification notificationWithName:@"getUrl" object:nil userInfo:dictGet];
+    //通过通知中心发送通知
+    [[NSNotificationCenter defaultCenter] postNotification:Getnotification];
 }
 
 

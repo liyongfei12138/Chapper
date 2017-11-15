@@ -40,6 +40,8 @@
     
     [self.webView loadRequest:request];
     
+    
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

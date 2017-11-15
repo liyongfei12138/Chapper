@@ -17,7 +17,8 @@
 #import <MJExtension.h>
 #import "ZMFAQVC.h"
 #import "ZMAboutVC.h"
-
+#import "ZMLoginWebVC.h"
+#import "ZMLoginNavVC.h"
 @interface ZMMyVC () <UITableViewDataSource,UITableViewDelegate>
 
 // 懒加载菜单数组
@@ -56,6 +57,7 @@
     // 创建headview
     ZMMyHeadView *headView = [[ZMMyHeadView alloc] initWithFrame:CGRectMake(0, 0, kDeviceWidth, kDeviceHeight * 0.25)];
     [tableV setTableHeaderView:headView];
+    headView.own = self;
     
     tableV.contentInset = UIEdgeInsetsMake(-20, 0, 0, 0);
     tableV.delegate = self;
@@ -124,8 +126,13 @@
 {
     // 取消选中状态
      [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+
+    // 订单查询
+    ZMLoginWebVC *findVC = [[ZMLoginWebVC alloc] initWithWebView];
+    ZMLoginNavVC *findNav = [[ZMLoginNavVC alloc] initWithRootViewController:findVC];
+    // 相关问题
     ZMFAQVC *faqVC = [[ZMFAQVC alloc] init];
+    // 关于
     ZMAboutVC *aboutVC = [[ZMAboutVC alloc] init];
     // 改变返回按钮样式
     UIButton *backBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -138,10 +145,12 @@
 //    faqVC.navigationItem.title = @"常见问题";
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:faqVC];
      UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:aboutVC];
-    
+
     switch (indexPath.row) {
         case 0:
-            ZMLOG(@"你点击了第%zd的cell",indexPath.row);
+            findVC.title = @"订单查询";
+            [self presentViewController:findNav animated:YES completion:nil];
+            
             break;
         case 1:
 //            ZMLOG(@"你点击了第%zd的cell",indexPath.row);

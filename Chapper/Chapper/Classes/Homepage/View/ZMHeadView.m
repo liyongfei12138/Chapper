@@ -165,7 +165,7 @@
         UINavigationController *nav = self.owner.tabBarController.viewControllers[1];
         ZMClassifyVC *sort = nav.viewControllers[0];
         
-//        [sort selectedSortID:[[[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"] intValue]];
+        [sort selectedSortID:[[[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"] intValue]];
     }else if (type == 5)
     {
         ZMWebVC *webVC = [[ZMWebVC alloc] init];
@@ -182,6 +182,7 @@
         webVC.navigationItem.title = titleName;
         webVC.webUrl = webUrl;
 //        self.webVC.poseType = 6;
+        [self.owner presentViewController:navWeb animated:YES completion:nil];
     }
 }
 

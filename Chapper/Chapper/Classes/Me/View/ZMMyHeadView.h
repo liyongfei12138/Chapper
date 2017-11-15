@@ -10,4 +10,6 @@
 
 @interface ZMMyHeadView : UIView
 
+@property (nonatomic, strong) UIViewController *own;
+
 @end

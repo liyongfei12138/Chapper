@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C4EFE749E02CFF4D1A73F207 /* libPods-Chapper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 353832676C7A43961EDE2BA3 /* libPods-Chapper.a */; };
+		D818995E1FBBE62500F1B6CD /* yw_1222.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D818995D1FBBE62400F1B6CD /* yw_1222.jpg */; };
+		D81899611FBC11F300F1B6CD /* ZMLoginWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81899601FBC11F300F1B6CD /* ZMLoginWebVC.m */; };
+		D81899641FBC146400F1B6CD /* ZMLoginNavVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D81899631FBC146400F1B6CD /* ZMLoginNavVC.m */; };
 		D81CF9C41FAB18DE00A8D61F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81CF9C21FAB18DE00A8D61F /* Main.storyboard */; };
 		D81CF9C61FAB18DE00A8D61F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81CF9C51FAB18DE00A8D61F /* Assets.xcassets */; };
 		D81CF9C91FAB18DE00A8D61F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D81CF9C71FAB18DE00A8D61F /* LaunchScreen.storyboard */; };
@@ -76,6 +79,11 @@
 		1BAFB4948DA20EB01FD3F47A /* Pods-Chapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chapper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chapper/Pods-Chapper.debug.xcconfig"; sourceTree = "<group>"; };
 		1E6A03668A6E6A32D236195A /* Pods-Chapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chapper.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chapper/Pods-Chapper.release.xcconfig"; sourceTree = "<group>"; };
 		353832676C7A43961EDE2BA3 /* libPods-Chapper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Chapper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D818995D1FBBE62400F1B6CD /* yw_1222.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yw_1222.jpg; sourceTree = "<group>"; };
+		D818995F1FBC11F300F1B6CD /* ZMLoginWebVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLoginWebVC.h; sourceTree = "<group>"; };
+		D81899601FBC11F300F1B6CD /* ZMLoginWebVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMLoginWebVC.m; sourceTree = "<group>"; };
+		D81899621FBC146400F1B6CD /* ZMLoginNavVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMLoginNavVC.h; sourceTree = "<group>"; };
+		D81899631FBC146400F1B6CD /* ZMLoginNavVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMLoginNavVC.m; sourceTree = "<group>"; };
 		D81CF9B91FAB18DE00A8D61F /* Chapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81CF9C31FAB18DE00A8D61F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D81CF9C51FAB18DE00A8D61F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -229,6 +237,7 @@
 		D81CF9B01FAB18DE00A8D61F = {
 			isa = PBXGroup;
 			children = (
+				D818995D1FBBE62400F1B6CD /* yw_1222.jpg */,
 				D81CF9BB1FAB18DE00A8D61F /* Chapper */,
 				D81CF9BA1FAB18DE00A8D61F /* Products */,
 				9246F1DA276728C9490804E9 /* Pods */,
@@ -386,6 +395,10 @@
 				D87760891FB1C75600D44E6E /* ZMFAQVC.m */,
 				D84055211FB316E200FF18C0 /* ZMAboutVC.h */,
 				D84055221FB316E200FF18C0 /* ZMAboutVC.m */,
+				D818995F1FBC11F300F1B6CD /* ZMLoginWebVC.h */,
+				D81899601FBC11F300F1B6CD /* ZMLoginWebVC.m */,
+				D81899621FBC146400F1B6CD /* ZMLoginNavVC.h */,
+				D81899631FBC146400F1B6CD /* ZMLoginNavVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -651,6 +664,7 @@
 				D82262441FB00A4600991649 /* ZMHotCollectionViewCell.xib in Resources */,
 				D85CBA021FB14BD90003ACF7 /* ZMTreatureCollectionViewCell.xib in Resources */,
 				D87760841FB1B6EA00D44E6E /* myMenu.plist in Resources */,
+				D818995E1FBBE62500F1B6CD /* yw_1222.jpg in Resources */,
 				D81CF9C61FAB18DE00A8D61F /* Assets.xcassets in Resources */,
 				D87760791FB19A1100D44E6E /* ZMMyTableViewCell.xib in Resources */,
 				D84960591FB9B22B00C5C4DB /* MJRefresh.bundle in Resources */,
@@ -701,6 +715,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chapper/Pods-Chapper-resources.sh",
+				"${PODS_ROOT}/AlibcLinkPartnerSDK/AlibcLinkPartnerSDK.framework/ALPLinkPartnerSDK.bundle",
+				"${PODS_ROOT}/AlibcTradeSDK/AlibcTradeBiz.framework/NBResource.bundle",
+				"${PODS_ROOT}/AlipaySDK/alipay/AlipaySDK.bundle",
 				"${PODS_ROOT}/PYSearch/PYSearch/PYSearch.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
@@ -735,6 +752,7 @@
 				D8360CB31FBACDD8008C115E /* ZMWebVC.m in Sources */,
 				D84960501FB9B22B00C5C4DB /* MJRefreshAutoGifFooter.m in Sources */,
 				D849604C1FB9B22B00C5C4DB /* MJRefreshBackFooter.m in Sources */,
+				D81899641FBC146400F1B6CD /* ZMLoginNavVC.m in Sources */,
 				D81CF9E21FAB20CB00A8D61F /* AppDelegate.m in Sources */,
 				D849605B1FB9B22B00C5C4DB /* NSBundle+MJRefresh.m in Sources */,
 				D8A4BB9A1FB59BCC00E4379D /* ZMTodayItem.m in Sources */,
@@ -769,6 +787,7 @@
 				D82DFD5C1FB2DD7C00BCAA4A /* ZMGoodsVC.m in Sources */,
 				D8B9D29D1FAB58DD00521CE3 /* ZMHomepageVC.m in Sources */,
 				D849604F1FB9B22B00C5C4DB /* MJRefreshHeader.m in Sources */,
+				D81899611FBC11F300F1B6CD /* ZMLoginWebVC.m in Sources */,
 				D8495EFB1FB9937B00C5C4DB /* ZMClassItem.m in Sources */,
 				D877606E1FB1898600D44E6E /* ZMLotteryVCViewController.m in Sources */,
 				D84960531FB9B22B00C5C4DB /* MJRefreshBackGifFooter.m in Sources */,
@@ -910,14 +929,89 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PA888TJJ5K;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Chapper/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Chapper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanling.quanhuasuan;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BHInfiniteScrollView\"",
+					"-l\"MJCSegmentInterface\"",
+					"-l\"MJExtension\"",
+					"-l\"Masonry\"",
+					"-l\"PYSearch\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AlibabaAuthExt\"",
+					"-framework",
+					"\"AlibabaAuthSDK\"",
+					"-framework",
+					"\"AlibcLinkPartnerSDK\"",
+					"-framework",
+					"\"AlibcTradeBiz\"",
+					"-framework",
+					"\"AlibcTradeCommon\"",
+					"-framework",
+					"\"AlibcTradeSDK\"",
+					"-framework",
+					"\"AlipaySDK\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenMtopExt\"",
+					"-framework",
+					"\"OpenMtopSDK\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SGMain\"",
+					"-framework",
+					"\"SGSecurityBody\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SecurityGuardSDK\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TUnionTradeSDK\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"UTDID\"",
+					"-framework",
+					"\"UTMini\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lixin.quanhuasuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -928,14 +1022,89 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PA888TJJ5K;
+				ENABLE_BITCODE = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Chapper/Other/PrefixHeader.pch;
 				INFOPLIST_FILE = Chapper/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yanling.quanhuasuan;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"BHInfiniteScrollView\"",
+					"-l\"MJCSegmentInterface\"",
+					"-l\"MJExtension\"",
+					"-l\"Masonry\"",
+					"-l\"PYSearch\"",
+					"-l\"SDWebImage\"",
+					"-l\"SVProgressHUD\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AlibabaAuthExt\"",
+					"-framework",
+					"\"AlibabaAuthSDK\"",
+					"-framework",
+					"\"AlibcLinkPartnerSDK\"",
+					"-framework",
+					"\"AlibcTradeBiz\"",
+					"-framework",
+					"\"AlibcTradeCommon\"",
+					"-framework",
+					"\"AlibcTradeSDK\"",
+					"-framework",
+					"\"AlipaySDK\"",
+					"-framework",
+					"\"CFNetwork\"",
+					"-framework",
+					"\"CoreFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreLocation\"",
+					"-framework",
+					"\"CoreMotion\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"OpenMtopExt\"",
+					"-framework",
+					"\"OpenMtopSDK\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SGMain\"",
+					"-framework",
+					"\"SGSecurityBody\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SecurityGuardSDK\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TUnionTradeSDK\"",
+					"-framework",
+					"\"UIKit\"",
+					"-framework",
+					"\"UMMobClick\"",
+					"-framework",
+					"\"UTDID\"",
+					"-framework",
+					"\"UTMini\"",
+					"-weak_framework",
+					"\"AdSupport\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lixin.quanhuasuan;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

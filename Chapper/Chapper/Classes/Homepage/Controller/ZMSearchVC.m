@@ -170,6 +170,7 @@
 {
     ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
     goodVC.lotterArr = _searchArr[indexPath.row];
+//    goodVC.webUrl = self.searchArr
     NSLog(@"<测试>按钮点击");
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
     

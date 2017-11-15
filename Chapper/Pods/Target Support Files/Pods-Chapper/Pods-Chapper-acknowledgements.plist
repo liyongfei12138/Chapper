@@ -43,6 +43,57 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Alibaba-Inc copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>AlibabaAuthSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>AlibcLinkPartnerSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>AlibcTradeSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>AlipaySDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>BCUserTrack</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>The MIT License (MIT)
 
 Copyright (c) 2016 豪
@@ -403,6 +454,28 @@ THE SOFTWARE.
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Alibaba-INC copyright
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>SGMain</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>SGSecurityBody</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright (c) 2011-2017 Sam Vermette, Tobias Tiemerding and contributors.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -422,12 +495,53 @@ A different license may apply to other resources included in this package, inclu
 		</dict>
 		<dict>
 			<key>FooterText</key>
+			<string>Alibaba-INC copyright
+</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>SecurityGuardSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-INC copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>TUnionTradeSDK</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
 			<string>Copyright 2011 - 2015 UMeng.com. All rights reserved.
 </string>
 			<key>License</key>
 			<string>Copyright</string>
 			<key>Title</key>
 			<string>UMengAnalytics-NO-IDFA</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>阿里悟空 © 2014. See http://m.laiwang.com/market/laiwang/wukong-serviceagreement.php</string>
+			<key>License</key>
+			<string>MIT</string>
+			<key>Title</key>
+			<string>UTDID</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>Alibaba-Inc copyright</string>
+			<key>License</key>
+			<string>Copyright</string>
+			<key>Title</key>
+			<string>mtop</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>
