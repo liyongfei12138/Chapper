@@ -7,7 +7,7 @@
 //
 
 #import "ZMSortSegmentView.h"
-#import "ZMLotteryVCViewController.h"
+#import "ZMLotteryViewController.h"
 @interface ZMSortSegmentView() <MJCSegmentDelegate>
 // 普通状态下导航栏图片组
 @property (nonatomic, strong) NSArray *defImageArr;
@@ -42,7 +42,7 @@
     self.delegate = self;
     NSMutableArray *vcarr = [[NSMutableArray alloc] init];
     for (int i = 0; i < 10; i++) {
-        ZMLotteryVCViewController *lottery = [[ZMLotteryVCViewController alloc] init];
+        ZMLotteryViewController *lottery = [[ZMLotteryViewController alloc] init];
         lottery.keyWorld = [NSString stringWithFormat:@"%d",i + 1];
         lottery.poseType = 1;
         

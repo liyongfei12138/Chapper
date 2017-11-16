@@ -29,9 +29,12 @@
 #define kDeviceHeight [UIScreen mainScreen].bounds.size.height
 // 主页数据
 #define ZMMainUrl @"https://taoboo.kunleen.com/coupon.webapi//api/deploy/carousel"
-//商品数据
+// 商品数据
 #define ZMItemUrl @"https://taoboo.kunleen.com/coupon.webapi/api/deploy/getItem"
-
+// 常见问题Url
+#define FAQUrl @"http://onepay.kunleen.com/images/onepay/html/Coupon-FAQ.html"
+// 关于Url
+#define AboutUrl @"http://onepay.kunleen.com/images/onepay/html/about_coupon_3.html"
 #define kSmallRed [UIColor colorWithRed:251.0/255.0 green:35.0/255.0 blue:67.0/255.0 alpha:1.0f]
 #define kSmallGray [UIColor colorWithRed:240.0/255.0 green:241.0/255.0 blue:242.0/255.0 alpha:1.0f]
 

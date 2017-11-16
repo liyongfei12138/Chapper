@@ -11,16 +11,18 @@
 #import "ZMHeadView.h"
 #import <BHInfiniteScrollView/BHInfiniteScrollView.h>
 //#import "ZMHotHeadView.h"
-#import "ZMGoodsVC.h"
+#import "ZMExcellentViewController.h"
 #import <AFNetworking.h>
 #import <UIButton+WebCache.h>
 #import <SVProgressHUD.h>
 #import <MJExtension.h>
-#import "ZMLotteryVCViewController.h"
-#import "ZMGoodsVC.h"
-#import "ZMFAQVC.h"
-#import "ZMClassifyVC.h"
-#import "ZMWebVC.h"
+#import "ZMLotteryViewController.h"
+//#import "ZMFAQVC.h"
+#import "ZMClassifyViewController.h"
+//#import "ZMWebVC.h"
+#import "ZMWebViewController.h"
+#import "ZMWebViewController.h"
+#import "ZMWebNavigationController.h"
 
 @interface ZMHeadView ()<BHInfiniteScrollViewDelegate>
 /** 活动按钮数据数组**/
@@ -31,11 +33,11 @@
 @property (nonatomic, strong) NSMutableArray *infScroImagArr;
 
 @property (nonatomic, strong) BHInfiniteScrollView *infinitePageView;
-@property (nonatomic, strong) ZMLotteryVCViewController *btnVC;
+@property (nonatomic, strong) ZMLotteryViewController *btnVC;
 
 @property (nonatomic, strong) NSMutableArray *infinArr;
 
-@property (nonatomic, strong) ZMLotteryVCViewController *imageVC;
+@property (nonatomic, strong) ZMLotteryViewController *imageVC;
 @end
 @implementation ZMHeadView
 
@@ -120,12 +122,12 @@
     
     // 类型1
     if (type == 1) {
-        ZMGoodsVC *goodVC = [[ZMGoodsVC alloc] init];
+        ZMExcellentViewController *goodVC = [[ZMExcellentViewController alloc] init];
         goodVC.toolID = [[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"];
     }
     else if (type == 2)
     {
-        ZMLotteryVCViewController *imageVC = [[ZMLotteryVCViewController alloc] init];
+        ZMLotteryViewController *imageVC = [[ZMLotteryViewController alloc] init];
         UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:imageVC];
         [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
 //        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
@@ -143,7 +145,7 @@
     }
     else if (type == 3)
     {
-        ZMLotteryVCViewController *imageVC = [[ZMLotteryVCViewController alloc] init];
+        ZMLotteryViewController *imageVC = [[ZMLotteryViewController alloc] init];
         UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:imageVC];
         [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
         //        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
@@ -163,12 +165,12 @@
     {
         [self.owner.tabBarController setSelectedIndex:1];
         UINavigationController *nav = self.owner.tabBarController.viewControllers[1];
-        ZMClassifyVC *sort = nav.viewControllers[0];
+        ZMClassifyViewController *sort = nav.viewControllers[0];
         
         [sort selectedSortID:[[[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"] intValue]];
     }else if (type == 5)
     {
-        ZMWebVC *webVC = [[ZMWebVC alloc] init];
+        ZMWebViewController *webVC = [[ZMWebViewController alloc] init];
         UINavigationController *navWeb = [[UINavigationController alloc] initWithRootViewController:webVC];
         [webVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
         //        [imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];[imageVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
@@ -199,18 +201,18 @@
    
     if (index != 3) {
   
-        ZMLotteryVCViewController *btnVC = [[ZMLotteryVCViewController alloc]init];
+        ZMLotteryViewController *btnVC = [[ZMLotteryViewController alloc]init];
         UINavigationController *navBtn = [[UINavigationController alloc] initWithRootViewController:btnVC];
         [btnVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
-        [btnVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//        [btnVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
         btnVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
         self.btnVC = btnVC;
         [self.owner presentViewController:navBtn animated:YES completion:nil];
     }
    
     // 创建常见问题页面
-    ZMFAQVC *faqVC = [[ZMFAQVC alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:faqVC];
+    ZMWebViewController *faqVC = [[ZMWebViewController alloc] initWithWebView];
+    ZMWebNavigationController *nav = [[ZMWebNavigationController alloc] initWithRootViewController:faqVC];
   
 //    NSDictionary *dic = [self.acBtnDataArr objectAtIndex:index];
 //    int type = [[dic objectForKey:@"carouselType"] intValue];
@@ -234,10 +236,12 @@
             break;
         case 3:
             faqVC.navigationItem.title = @"常见问题";
-            [faqVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
-            [faqVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-            faqVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
+            faqVC.webUrl = FAQUrl;
+//            [faqVC.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64white"] forBarMetrics:UIBarMetricsDefault];
+//            [faqVC.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//            faqVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backBtn1];
             [self.owner presentViewController:nav animated:YES completion:nil];
+            
             break;
         case 4:
             // 预留

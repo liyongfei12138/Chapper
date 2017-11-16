@@ -11,12 +11,12 @@
 
 #import "ZMTabBarVC.h"
 
-#import "ZMHomepageVC.h"
-#import "ZMClassifyVC.h"
-#import "ZMMyVC.h"
+#import "ZMHomeViewController.h"
+#import "ZMClassifyViewController.h"
+#import "ZMDetailViewController.h"
 #import "ZMNavVC.h"
-#import "ZMHomepageNavVC.h"
-#import "ZMGoodsVC.h"
+#import "ZMHomeNavigationController.h"
+#import "ZMExcellentViewController.h"
 
 @interface ZMTabBarVC ()
 
@@ -35,7 +35,7 @@
 //创建tabBar方法
 - (void)setUpTabBar{
     //创建主页
-    ZMHomepageVC *homepageVC = [[ZMHomepageVC alloc] init];
+    ZMHomeViewController *homepageVC = [[ZMHomeViewController alloc] init];
     //调用创建图片方法
     [self childViewController:homepageVC tabBarImage:[UIImage imageWithRandAsOriImagename:@"button_shouye1"] selImage:[UIImage imageWithRandAsOriImagename:@"button_shouye2"] title:nil];
     
@@ -43,14 +43,14 @@
     [self tabBarWithViewController:homepageVC tabBarText:@"首页" textColor:kSmallRed];
 
    //创建分类
-    ZMClassifyVC *classifyVC = [[ZMClassifyVC alloc] init];
+    ZMClassifyViewController *classifyVC = [[ZMClassifyViewController alloc] init];
     //调用创建图片方法
     [self childViewController:classifyVC tabBarImage:[UIImage imageWithRandAsOriImagename:@"button_fenlei1"] selImage:[UIImage imageWithRandAsOriImagename:@"button_fenlei2"] title:@"分类"];
     //调用修改tabBar选中状态颜色方
     [self tabBarWithViewController:classifyVC tabBarText:@"分类" textColor:kSmallRed];
     
     //创建我的
-    ZMMyVC *myVC = [[ZMMyVC alloc] init];
+    ZMDetailViewController *myVC = [[ZMDetailViewController alloc] init];
     //调用创建图片方法
     [self childViewController:myVC tabBarImage:[UIImage imageWithRandAsOriImagename:@"button_wode1"] selImage:[UIImage imageWithRandAsOriImagename:@"button_wode2"] title:@"我的"];
     //调用修改tabBar选中状态颜色方
@@ -74,8 +74,8 @@
 //    nav.tabBarItem.title =
     childVC.navigationItem.title = title;
     
-    if ([childVC isKindOfClass:[ZMHomepageVC class]]) {
-        nav = [[ZMHomepageNavVC alloc] initWithRootViewController:childVC];
+    if ([childVC isKindOfClass:[ZMHomeViewController class]]) {
+        nav = [[ZMHomeNavigationController alloc] initWithRootViewController:childVC];
         [nav.navigationBar setBackgroundImage:[UIImage imageNamed:@"NavBar64"] forBarMetrics:UIBarMetricsDefault];
     }
     

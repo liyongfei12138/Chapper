@@ -9,9 +9,9 @@
 #import "ZMGoodsHeadView.h"
 
 #import <UIImageView+WebCache.h>
-#import "ZMClassItem.h"
+#import "ZMClassifyItem.h"
 #import "ZMTodayItem.h"
-#import "ZMGoodsVC.h"
+#import "ZMExcellentViewController.h"
 @interface ZMGoodsHeadView() <BHInfiniteScrollViewDelegate>
 
 // 获取领卷中心URL
@@ -116,7 +116,7 @@
     image.y = 5;
     [colorView addSubview:image];
     // 设置分类商品页面
-    ZMClassItem *item = (ZMClassItem *)self.lotterArr;
+    ZMClassifyItem *item = (ZMClassifyItem *)self.lotterArr;
     if (item) {
         self.nameLabel.text = item.itemName;
         self.afterLabel.text = [NSString stringWithFormat:@"¥%@", item.finalPrice];

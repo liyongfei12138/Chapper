@@ -28,6 +28,8 @@
     // 百川平台基础SDK初始化，加载并初始化各个业务能力插件
     [[AlibcTradeSDK sharedInstance] asyncInitWithSuccess:^{
         
+        NSLog(@"----------V---------------");
+        
     } failure:^(NSError *error) {
         NSLog(@"Init failed: %@", error.description);
     }];
