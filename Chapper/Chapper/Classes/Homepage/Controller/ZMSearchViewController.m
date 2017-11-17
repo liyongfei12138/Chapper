@@ -4,12 +4,14 @@
 //
 //  Created by liyongfei on 2017/11/7.
 //  Copyright © 2017年 liyongfei. All rights reserved.
-//
+// **********
+// 搜索
+// **********
 
 #import "ZMSearchViewController.h"
 #import "MJRefresh.h"
 #import "ZMTreatureCollectionViewCell.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 #import "ZMClassifyItem.h"
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
@@ -168,7 +170,7 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZMExcellentViewController *goodVC = [[ZMExcellentViewController alloc] init];
+    ZMProductViewController *goodVC = [[ZMProductViewController alloc] init];
     goodVC.lotterArr = _searchArr[indexPath.row];
 //    goodVC.webUrl = self.searchArr
     NSLog(@"<测试>按钮点击");

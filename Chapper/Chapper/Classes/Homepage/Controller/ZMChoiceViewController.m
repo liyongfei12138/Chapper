@@ -4,11 +4,13 @@
 //
 //  Created by liyongfei on 2017/11/9.
 //  Copyright © 2017年 liyongfei. All rights reserved.
-//
+// **********
+// 优选
+// **********
 
 #import "ZMChoiceViewController.h"
 #import "ZMTreatureCollectionViewCell.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 #include <MJExtension.h>
 #import "ZMTodayItem.h"
 #import <UIImageView+WebCache.h>
@@ -118,8 +120,8 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZMExcellentViewController *goodVC = [[ZMExcellentViewController alloc] init];
-    NSLog(@"<测试>按钮点击");
+    ZMProductViewController *goodVC = [[ZMProductViewController alloc] init];
+//    NSLog(@"<测试>按钮点击");
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:goodVC];
     goodVC.todayArr = self.todayArr[indexPath.row];
     [self presentViewController:nav animated:NO completion:nil];
@@ -145,11 +147,6 @@
  
         NSDictionary *dict =[[NSDictionary alloc] initWithObjectsAndKeys:self.todayArr,@"dayArray",nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"dayH" object:nil userInfo:dict];
-//        //创建通知
-//        NSNotification *notification =[NSNotification notificationWithName:@"dayH" object:nil userInfo:dict];
-//        //通过通知中心发送通知
-//        [[NSNotificationCenter defaultCenter] postNotification:notification];
-        
        
          [self reloadAllData];
         

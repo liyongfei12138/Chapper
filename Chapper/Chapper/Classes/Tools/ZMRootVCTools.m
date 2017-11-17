@@ -10,7 +10,7 @@
 
 #import "ZMRootVCTools.h"
 #import "ZMSaveTools.h"
-#import "ZMTabBarVC.h"
+#import "ZMMainTabBarController.h"
 #define ZMVersion @"version"
 
 
@@ -38,7 +38,7 @@
     }
     */
 
-    ZMTabBarVC *vc = [[ZMTabBarVC alloc] init];
+    ZMMainTabBarController *vc = [[ZMMainTabBarController alloc] init];
 //    vc.view.backgroundColor = [UIColor redColor];
     return vc;
 }

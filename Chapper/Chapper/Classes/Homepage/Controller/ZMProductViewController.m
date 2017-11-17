@@ -4,9 +4,10 @@
 //
 //  Created by liyongfei on 2017/11/8.
 //  Copyright © 2017年 liyongfei. All rights reserved.
-//
-
-#import "ZMExcellentViewController.h"
+// **********
+// 商品
+// **********
+#import "ZMProductViewController.h"
 //#import <BHInfiniteScrollView.h>
 #import "ZMGoodsHeadView.h"
 
@@ -16,7 +17,7 @@
 #import <AlibabaAuthSDK/ALBBSDK.h>
 #import <AlibcTradeSDK/AlibcTradeSDK.h>
 
-@interface ZMExcellentViewController () <UITableViewDelegate, UITableViewDataSource >
+@interface ZMProductViewController () <UITableViewDelegate, UITableViewDataSource >
 // 商品字典
 @property (nonatomic, strong) NSDictionary *goodDict;
 
@@ -24,7 +25,7 @@
 
 @end
 
-@implementation ZMExcellentViewController
+@implementation ZMProductViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

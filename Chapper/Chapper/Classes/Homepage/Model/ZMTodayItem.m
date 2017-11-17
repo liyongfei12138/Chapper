@@ -3,8 +3,9 @@
 //  Chapper
 //
 //  Created by liyongfei on 2017/11/10.
-//  Copyright © 2017年 liyongfei. All rights reserved.
-//
+// **********
+// 优选模型
+// **********
 
 #import "ZMTodayItem.h"
 

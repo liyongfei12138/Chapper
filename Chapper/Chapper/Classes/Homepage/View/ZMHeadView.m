@@ -4,14 +4,14 @@
 //
 //  Created by liyongfei on 2017/11/4.
 //  Copyright © 2017年 liyongfei. All rights reserved.
-//// **********
-// tableview head View
+// **********
+// 主页头部view
 // **********
 
 #import "ZMHeadView.h"
 #import <BHInfiniteScrollView/BHInfiniteScrollView.h>
 //#import "ZMHotHeadView.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 #import <AFNetworking.h>
 #import <UIButton+WebCache.h>
 #import <SVProgressHUD.h>
@@ -122,7 +122,7 @@
     
     // 类型1
     if (type == 1) {
-        ZMExcellentViewController *goodVC = [[ZMExcellentViewController alloc] init];
+        ZMProductViewController *goodVC = [[ZMProductViewController alloc] init];
         goodVC.toolID = [[_infinArr objectAtIndex:index] objectForKey:@"carouselValue"];
     }
     else if (type == 2)

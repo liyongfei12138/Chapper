@@ -9,20 +9,20 @@
 // 底部导航栏
 // **********
 
-#import "ZMTabBarVC.h"
+#import "ZMMainTabBarController.h"
 
 #import "ZMHomeViewController.h"
 #import "ZMClassifyViewController.h"
 #import "ZMDetailViewController.h"
-#import "ZMNavVC.h"
+#import "ZMMainNavigationController.h"
 #import "ZMHomeNavigationController.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 
-@interface ZMTabBarVC ()
+@interface ZMMainTabBarController ()
 
 @end
 
-@implementation ZMTabBarVC
+@implementation ZMMainTabBarController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -70,7 +70,7 @@
 //创建图片方法
 - (void)childViewController:(UIViewController *)childVC tabBarImage:(UIImage *)tabBarImage selImage:(UIImage *)selImage title:(NSString *)title
 {
-    ZMNavVC *nav = [[ZMNavVC alloc] initWithRootViewController: childVC];
+    ZMMainNavigationController *nav = [[ZMMainNavigationController alloc] initWithRootViewController: childVC];
 //    nav.tabBarItem.title =
     childVC.navigationItem.title = title;
     

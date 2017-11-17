@@ -1,5 +1,5 @@
 //
-//  ZMNavVC.h
+//  ZMTabBarVC.h
 //  Chapper
 //
 //  Created by liyongfei on 2017/11/2.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ZMNavVC : UINavigationController
+@interface ZMMainTabBarController : UITabBarController
 
 @end

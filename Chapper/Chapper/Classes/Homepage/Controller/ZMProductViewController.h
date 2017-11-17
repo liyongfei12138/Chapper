@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #define kCICLYHEIGHT (kDeviceWidth)
-@interface ZMExcellentViewController : UIViewController
+@interface ZMProductViewController : UIViewController
 
 // 主页商品ID
 @property (nonatomic, strong) NSString *toolID;

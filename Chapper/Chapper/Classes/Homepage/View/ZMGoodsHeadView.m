@@ -4,14 +4,15 @@
 //
 //  Created by liyongfei on 2017/11/8.
 //  Copyright © 2017年 liyongfei. All rights reserved.
-//
-
+// **********
+// 商品优选
+// **********
 #import "ZMGoodsHeadView.h"
 
 #import <UIImageView+WebCache.h>
 #import "ZMClassifyItem.h"
 #import "ZMTodayItem.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 @interface ZMGoodsHeadView() <BHInfiniteScrollViewDelegate>
 
 // 获取领卷中心URL

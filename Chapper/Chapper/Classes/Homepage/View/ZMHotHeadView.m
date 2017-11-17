@@ -10,7 +10,7 @@
 // **********
 #import "ZMHotHeadView.h"
 #import "ZMHotCollectionViewCell.h"
-#import "ZMExcellentViewController.h"
+#import "ZMProductViewController.h"
 //#import "ZMHeadView.m"
 #import "ZMHomeViewController.h"
 #import "UIImageView+WebCache.h"
@@ -128,7 +128,7 @@
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    ZMExcellentViewController *goodVC = [[ZMExcellentViewController alloc] init];
+    ZMProductViewController *goodVC = [[ZMProductViewController alloc] init];
     NSLog(@"<测试>按钮点击------");
     goodVC.toolID = [[_hotArr objectAtIndex:indexPath.row] objectForKey:@"carouselValue"];
 //    NSLog(@"%@",goodVC.toolID);

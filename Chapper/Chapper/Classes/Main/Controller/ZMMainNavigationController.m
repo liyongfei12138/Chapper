@@ -6,13 +6,13 @@
 //  Copyright © 2017年 liyongfei. All rights reserved.
 //
 
-#import "ZMNavVC.h"
+#import "ZMMainNavigationController.h"
 
-@interface ZMNavVC ()
+@interface ZMMainNavigationController ()
 
 @end
 
-@implementation ZMNavVC
+@implementation ZMMainNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
